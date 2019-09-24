@@ -6,37 +6,35 @@
 
  */
 
-package com.example.vande.scouting2018;
+package com.example.vande.scouting2019;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.inputmethodservice.Keyboard;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
-
-
-
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import utils.StringUtils;
 
-public class MainActivity extends AppCompatActivity implements View.OnKeyListener {
+public class ScouterInitialsActivity extends AppCompatActivity implements View.OnKeyListener {
 
-
-
-
-
+    @BindView(R.id.scouterInitials_input_layout)
+    public TextInputLayout scouterInitialsInputLayout;
+    private static String initials;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_scouter_initials);
         ButterKnife.bind(this);
     }
 
@@ -68,22 +66,30 @@ public class MainActivity extends AppCompatActivity implements View.OnKeyListene
             if (inputEditText != null) {
 
                 switch (inputEditText.getId()) {
-
+                    case R.id.scouterInitials_input_layout:
+                        scouterInitialsInputLayout.setError(null);
+                        break;
                 }
             }
         }
         return false;
     }
 
-    public void showMatch(View view) {
-        startActivity(new Intent(this, ScouterInitialsActivity.class));
+    public static String getInitials() {
+        return initials;
     }
 
-    public void showPit(View view) {
-        startActivity(new Intent(this, PitActivity.class));
+    public void submitInitials(View view) {
+        initials = getTextInputLayoutString(scouterInitialsInputLayout);
+
+        if(!StringUtils.isEmptyOrNull(initials))
+            startActivity(new Intent(this, AutonActivity.class));
+        else
+            scouterInitialsInputLayout.setError(getText(R.string.scouterInitialsError));
     }
 
-    public void sendData(View view) {
-        startActivity(new Intent(this, SendDataActivity.class));
+    private String getTextInputLayoutString(@NonNull TextInputLayout textInputLayout) {
+        final EditText editText = textInputLayout.getEditText();
+        return editText != null && editText.getText() != null ? editText.getText().toString() : "";
     }
 }

@@ -6,11 +6,12 @@
 
  */
 
-package com.example.vande.scouting2018;
+package com.example.vande.scouting2019;
 
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -20,7 +21,6 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -34,15 +34,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
-import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.vande.scouting2019.data.TeamsDbHelper;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -152,6 +151,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
     @BindView(R.id.save_pit_btn)
     public Button savePitBtn;
 
+    public ArrayList<String> team_numbers = new ArrayList<>();
     private ArrayList<CharSequence> pitDataStringList;
 
 
@@ -165,8 +165,13 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        TeamsDbHelper mDbHelper = new TeamsDbHelper(this);
+        SQLiteDatabase db = mDbHelper.getReadableDatabase();
+
         setContentView(R.layout.activity_pit);
         pitDataStringList = new ArrayList<>();
+
+        team_numbers = TeamsDbHelper.getTeamNumbers(db);
 
         ButterKnife.bind(this);
 
@@ -190,8 +195,8 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
 
         Spinner teamnumberspinner = (Spinner) findViewById(R.id.pit_team_number_spinner);
 // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> teamnumberadapter = ArrayAdapter.createFromResource(this,
-                R.array.teamNumbers, android.R.layout.simple_spinner_item);
+        ArrayAdapter teamnumberadapter = new ArrayAdapter<String>(PitActivity.this,
+                android.R.layout.simple_spinner_dropdown_item, team_numbers);
 // Specify the layout to use when the list of choices appears
         teamnumberadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner

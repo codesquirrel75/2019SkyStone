@@ -6,7 +6,7 @@
 
  */
 
-package com.example.vande.scouting2018;
+package com.example.vande.scouting2019;
 
 import android.Manifest;
 import android.graphics.Color;
@@ -15,7 +15,6 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.design.widget.TextInputEditText;
-import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -48,9 +47,9 @@ import utils.StringUtils;
 import utils.ViewUtils;
 
 import static android.R.attr.value;
-import static com.example.vande.scouting2018.AutonActivity.AUTON_STRING_EXTRA;
-import static com.example.vande.scouting2018.AutonActivity.MATCH_STRING_EXTRA;
-import static com.example.vande.scouting2018.AutonActivity.TEAMNUMBER_STRING_EXTRA;
+import static com.example.vande.scouting2019.AutonActivity.AUTON_STRING_EXTRA;
+import static com.example.vande.scouting2019.AutonActivity.MATCH_STRING_EXTRA;
+import static com.example.vande.scouting2019.AutonActivity.TEAMNUMBER_STRING_EXTRA;
 
 
 public class TeleopActivity extends AppCompatActivity implements View.OnKeyListener {

@@ -6,23 +6,15 @@
 
  */
 
-package com.example.vande.scouting2018;
+package com.example.vande.scouting2019;
 
 import android.Manifest;
-import android.app.ActionBar;
-import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.os.Message;
-import android.os.Parcelable;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
@@ -33,26 +25,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.List;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
-import utils.FormatStringUtils;
 import utils.PermissionUtils;
-
-import static android.os.Environment.getExternalStorageDirectory;
 
 /**
  * Created by Matt on 10/9/2017.
