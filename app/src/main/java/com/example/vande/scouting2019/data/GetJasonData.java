@@ -46,7 +46,7 @@ public class GetJasonData extends AsyncTask<Void, Void, Void>{
 
 
         try {
-            URL url = new URL("https://sheets.googleapis.com/v4/spreadsheets/1YNigqBiEWOtHxPNuSBcgPeG_4huC1jqbTbkc721AZ_E/values:batchGet?majorDimension=ROWS&ranges=A2%3AB200&key=APIKEY");
+            URL url = new URL("SPREADSHEET URL");
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();
