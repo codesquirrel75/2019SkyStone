@@ -6,16 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:id="@+id/ScrollView01"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:scrollbars="vertical">
+
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/match_button"
@@ -56,6 +51,53 @@
                 app:layout_constraintTop_toBottomOf="@id/pit_button"
                 app:layout_constraintVertical_bias="0.0" />
 
+            <Button
+                android:id="@+id/ImportTeamsBtn"
+                android:layout_width="match_parent"
+                android:layout_height="30pt"
+                android:text="Import Teams"
+                android:textSize="12pt"
+                android:onClick="getTeams"
+                tools:layout_editor_absoluteX="68dp"
+                tools:layout_editor_absoluteY="218dp"
+                app:layout_constraintTop_toBottomOf="@id/send_data_button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/TeamsLable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16pt"
+                android:text="Loaded Teams"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/ImportTeamsBtn"
+                />
+
+            <ScrollView
+                android:id="@+id/TeamsScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                app:layout_constraintTop_toBottomOf="@id/TeamsLable"
+                app:layout_constraintBottom_toTopOf="@id/textView"
+                android:fillViewport="false"
+                android:scrollbars="vertical">
+
+
+                <TextView
+                    android:id="@+id/TeamsList"
+                    android:background="@color/cardview_dark_background"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text = "No teams loaded"
+                    android:textColor="@color/cardview_light_background"
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    />
+
+            </ScrollView>
+
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
@@ -66,8 +108,11 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginBottom="25dp" />
 
+
+
+
         </android.support.constraint.ConstraintLayout>
 
-    </ScrollView>
+
 
 </FrameLayout>

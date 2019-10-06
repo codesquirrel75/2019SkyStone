@@ -79,65 +79,10 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
     @BindView(R.id.pit_other_input)
     public EditText pitOtherInputLayout;
 
-    @BindView(R.id.pit_starting_hab_position_spinner)
-    public Spinner pitStartingHabPositionSpinner;
 
-    @BindView(R.id.pit_defense_in_perimeter)
-    public RadioGroup pitDefenseInPerimeter;
 
-    @BindView(R.id.pit_game_piece_pre_loaded)
-    public  RadioGroup pitGamePiecePreLoaded;
 
-    @BindView(R.id.pit_prematch_radio_group)
-    public  RadioGroup pitPrematchRadioGroup;
 
-    public String pit15String = "";
-
-    public String pitHatchString = "";
-
-    public  String pitCargoString = "";
-
-    @BindView(R.id.pit_endgame)
-    public Spinner pitEndgame;
-
-    @BindView(R.id.pit_15_auton)
-    public CheckBox pit15Auton;
-
-    @BindView(R.id.pit_15_manual)
-    public CheckBox pit15Manual;
-
-    @BindView(R.id.pit_15_nothing)
-    public CheckBox pit15Nothing;
-
-    @BindView(R.id.pit_hatch_cargo)
-    public CheckBox pitHatchCargo;
-
-    @BindView(R.id.pit_hatch_top)
-    public CheckBox pitHatchTop;
-
-    @BindView(R.id.pit_hatch_middle)
-    public CheckBox pitHatchMiddle;
-
-    @BindView(R.id.pit_hatch_bottom)
-    public CheckBox pitHatchBottom;
-
-    @BindView(R.id.pit_hatch_na)
-    public CheckBox pitHatchNa;
-
-    @BindView(R.id.pit_cargo_cargo)
-    public CheckBox pitCargoCargo;
-
-    @BindView(R.id.pit_cargo_top)
-    public CheckBox pitCargoTop;
-
-    @BindView(R.id.pit_cargo_middle)
-    public CheckBox pitCargoMiddle;
-
-    @BindView(R.id.pit_cargo_bottom)
-    public CheckBox pitCargoBottom;
-
-    @BindView(R.id.pit_cargo_na)
-    public CheckBox pitCargoNa;
 
 
 
@@ -178,7 +123,6 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         checkForPermissions();
 
 
-
         //  --- Drive Train spinner ---
 
         Spinner drivetrainspinner = (Spinner) findViewById(R.id.pit_drive_train_spinner);
@@ -203,7 +147,6 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         teamnumberspinner.setAdapter(teamnumberadapter);
 
 
-
         //  --- Programming languages spinner  ---
 
         Spinner languagespinner = (Spinner) findViewById(R.id.pit_programming_language_spinner);
@@ -215,27 +158,8 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
 // Apply the adapter to the spinner
         languagespinner.setAdapter(languageadapter);
 
-
-        //  ---  Hab starting position spinner  ---
-
-        Spinner habspinner = (Spinner) findViewById(R.id.pit_starting_hab_position_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> habadapter = ArrayAdapter.createFromResource(this, R.array.habPlatform, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        habadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        habspinner.setAdapter(habadapter);
-
-        //  ---  EndGame spinner  ---
-
-        Spinner endgamespinner = (Spinner) findViewById(R.id.pit_endgame);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> endgameadapter = ArrayAdapter.createFromResource(this, R.array.endgame_location, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        endgameadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        endgamespinner.setAdapter(endgameadapter);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -258,223 +182,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
     }
 
 
-    public void setString(View view){
-        Boolean checked = ((CheckBox)view).isChecked();
-        String s1;
 
-        switch (view.getId()){
-            case R.id.pit_15_auton:
-                s1 = " Autonomous |";
-                if(checked){
-                    if(pit15String.isEmpty()) {
-                        pit15String = s1;
-                    }else{
-                        pit15String = pit15String + s1;
-                    }
-                }else{
-                    if(pit15String.contains(s1)){
-                        int start = pit15String.indexOf(s1);
-                        pit15String = pit15String.substring(0,start) + pit15String.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_15_manual:
-                s1 = "Manual |";
-                if(checked){
-                    if(pit15String.isEmpty()) {
-                        pit15String = s1;
-                    }else{
-                        pit15String = pit15String + s1;
-                    }
-
-                }else{
-                    if(pit15String.contains(s1)){
-                        int start = pit15String.indexOf(s1);
-                        pit15String = pit15String.substring(0,start) + pit15String.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_15_nothing:
-                s1 = "Nothing |";
-                if(checked){
-                    if(pit15String.isEmpty()) {
-                        pit15String = s1;
-                    }else{
-                        pit15String = pit15String + s1;
-                    }
-                }else{
-                    if(pit15String.contains(s1)){
-                        int start = pit15String.indexOf(s1);
-                        pit15String = pit15String.substring(0,start) + pit15String.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_hatch_cargo:
-                s1 = "Cargo |";
-                if(checked){
-                    if(pitHatchString.isEmpty()) {
-                        pitHatchString = s1;
-                    }else{
-                        pitHatchString = pitHatchString + s1;
-                    }
-                }else{
-                    if(pitHatchString.contains(s1)){
-                        int start = pitHatchString.indexOf(s1);
-                        pitHatchString = pitHatchString.substring(0,start) + pitHatchString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_hatch_bottom:
-                s1 = "Bottom |";
-                if(checked){
-                    if(pitHatchString.isEmpty()) {
-                        pitHatchString = s1;
-                    }else{
-                        pitHatchString = pitHatchString + s1;
-                    }
-                }else{
-                    if(pitHatchString.contains(s1)){
-                        int start = pitHatchString.indexOf(s1);
-                        pitHatchString = pitHatchString.substring(0,start) + pitHatchString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_hatch_middle:
-                s1 = "Middle |";
-                if(checked){
-                    if(pitHatchString.isEmpty()) {
-                        pitHatchString = s1;
-                    }else{
-                        pitHatchString = pitHatchString + s1;
-                    }
-                }else{
-                    if(pitHatchString.contains(s1)){
-                        int start = pitHatchString.indexOf(s1);
-                        pitHatchString = pitHatchString.substring(0,start) + pitHatchString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_hatch_top:
-                s1 = "Top |";
-                if(checked){
-                    if(pitHatchString.isEmpty()) {
-                        pitHatchString = s1;
-                    }else{
-                        pitHatchString = pitHatchString + s1;
-                    }
-                }else{
-                    if(pitHatchString.contains(s1)){
-                        int start = pitHatchString.indexOf(s1);
-                        pitHatchString = pitHatchString.substring(0,start) + pitHatchString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_hatch_na:
-                s1 = "N/A |";
-                if(checked){
-                    if(pitHatchString.isEmpty()) {
-                        pitHatchString = s1;
-                    }else{
-                        pitHatchString = pitHatchString + s1;
-                    }
-                }else{
-                    if(pitHatchString.contains(s1)){
-                        int start = pitHatchString.indexOf(s1);
-                        pitHatchString = pitHatchString.substring(0,start) + pitHatchString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_cargo_cargo:
-                s1 = "Cargo |";
-                if(checked){
-                    if(pitCargoString.isEmpty()) {
-                        pitCargoString = s1;
-                    }else{
-                        pitCargoString = pitCargoString + s1;
-                    }
-                }else{
-                    if(pitCargoString.contains(s1)){
-                        int start = pitCargoString.indexOf(s1);
-                        pitCargoString = pitCargoString.substring(0,start) + pitCargoString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_cargo_bottom:
-                s1 = "Bottom |";
-                if(checked){
-                    if(pitCargoString.isEmpty()) {
-                        pitCargoString = s1;
-                    }else{
-                        pitCargoString = pitCargoString + s1;
-                    }
-                }else{
-                    if(pitCargoString.contains(s1)){
-                        int start = pitCargoString.indexOf(s1);
-                        pitCargoString = pitCargoString.substring(0,start) + pitCargoString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_cargo_middle:
-                s1 = "Middle |";
-                if(checked){
-                    if(pitCargoString.isEmpty()) {
-                        pitCargoString = s1;
-                    }else{
-                        pitCargoString = pitCargoString + s1;
-                    }
-                }else{
-                    if(pitCargoString.contains(s1)){
-                        int start = pitCargoString.indexOf(s1);
-                        pitCargoString = pitCargoString.substring(0,start) + pitCargoString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_cargo_top:
-                s1 = "Top |";
-                if(checked){
-                    if(pitCargoString.isEmpty()) {
-                        pitCargoString = s1;
-                    }else{
-                        pitCargoString = pitCargoString + s1;
-                    }
-                }else{
-                    if(pitCargoString.contains(s1)){
-                        int start = pitCargoString.indexOf(s1);
-                        pitCargoString = pitCargoString.substring(0,start) + pitCargoString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-            case R.id.pit_cargo_na:
-                s1 = "N/A |";
-                if(checked){
-                    if(pitCargoString.isEmpty()) {
-                        pitCargoString = s1;
-                    }else{
-                        pitCargoString = pitCargoString + s1;
-                    }
-                }else{
-                    if(pitCargoString.contains(s1)){
-                        int start = pitCargoString.indexOf(s1);
-                        pitCargoString = pitCargoString.substring(0,start) + pitCargoString.substring(start + s1.length());
-                    }
-                }
-                break;
-
-        }
-
-    }
 
     @Override
     protected void onResume() {
@@ -485,10 +193,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         pitOtherInputLayout.setOnKeyListener(this);
         pitRobotWeight.setOnKeyListener(this);
         pitProgrammingLanguages.setOnKeyListener(this);
-        pitStartingHabPositionSpinner.setOnKeyListener(this);
-        pitDefenseInPerimeter.setOnKeyListener(this);
-        pitGamePiecePreLoaded.setOnKeyListener(this);
-        pitEndgame.setOnKeyListener(this);
+
     }
 
 
@@ -501,10 +206,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         pitOtherInputLayout.setOnKeyListener(null);
         pitRobotWeight.setOnKeyListener(null);
         pitProgrammingLanguages.setOnKeyListener(null);
-        pitStartingHabPositionSpinner.setOnKeyListener(null);
-        pitDefenseInPerimeter.setOnKeyListener(null);
-        pitGamePiecePreLoaded.setOnKeyListener(null);
-        pitEndgame.setOnKeyListener(null);
+
     }
 
     @Override
@@ -530,11 +232,6 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         }else if(pitDriveTrainInputLayout.getSelectedItem().toString().equals("")){
             setSpinnerError(pitDriveTrainInputLayout, "Select a drive train.");
             ViewUtils.requestFocus(pitDriveTrainInputLayout, this);
-        }else if(pitStartingHabPositionSpinner.getSelectedItem().toString().equals("")){
-            setSpinnerError(pitStartingHabPositionSpinner, "Select a drive train.");
-            ViewUtils.requestFocus(pitStartingHabPositionSpinner, this);
-        } else if (pitGamePiecePreLoaded.getCheckedRadioButtonId() == -1) {
-            ViewUtils.requestFocus(pitGamePiecePreLoaded, this);
         } else if (StringUtils.isEmptyOrNull(pitRobotWeight.getText().toString())) {
             pitRobotWeight.setError(getText(R.string.pitRobotWeightError));
             ViewUtils.requestFocus(pitRobotWeight, this);
@@ -548,9 +245,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
             return;
         }
 
-      final RadioButton pitPreLoadRadiobtn = findViewById(pitGamePiecePreLoaded.getCheckedRadioButtonId());
-      final RadioButton pitPrematchRadiobtn = findViewById(pitPrematchRadioGroup.getCheckedRadioButtonId());
-      final RadioButton pitDefenseInPerimeterbtn = findViewById(pitDefenseInPerimeter.getCheckedRadioButtonId());
+
 
         if(PermissionUtils.getPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -562,14 +257,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
                 pitDataStringList.add(pitRobotWeight.getText().toString());
                 pitDataStringList.add(pitDriveTrainInputLayout.getSelectedItem().toString());
                 pitDataStringList.add(pitProgrammingLanguages.getSelectedItem().toString());
-                pitDataStringList.add(pitStartingHabPositionSpinner.getSelectedItem().toString());
-                pitDataStringList.add(pitDefenseInPerimeterbtn.getText().toString());
-                pitDataStringList.add(pitPreLoadRadiobtn.getText().toString());
-                pitDataStringList.add(pit15String);
-                pitDataStringList.add(pitHatchString);
-                pitDataStringList.add(pitCargoString);
-                pitDataStringList.add(pitEndgame.getSelectedItem().toString());
-                pitDataStringList.add(pitPrematchRadiobtn.getText().toString());
+
                 pitDataStringList.add(pitOtherInputLayout.getText().toString());
                 pitDataStringList.add(scouterInitialsInput.getText().toString());
 
@@ -688,26 +376,11 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         pitRobotWeight.setText(null);
         pitDriveTrainInputLayout.setSelection(0);
         pitProgrammingLanguages.setSelection(0);
-        pitStartingHabPositionSpinner.setSelection(0);
-        pitDefenseInPerimeter.check(R.id.defense_in_perimeter_no);
-        pitGamePiecePreLoaded.check(R.id.piece_nothing);
-        pitPrematchRadioGroup.check(R.id.pit_prematch_nothing);
+
         pitOtherInputLayout.setText(null);
-        pitEndgame.setSelection(0);
+
         scouterInitialsInput.setText(null);
-        pit15Auton.setChecked(false);
-        pit15Manual.setChecked(false);
-        pit15Nothing.setChecked(false);
-        pitCargoCargo.setChecked(false);
-        pitCargoTop.setChecked(false);
-        pitCargoMiddle.setChecked(false);
-        pitCargoBottom.setChecked(false);
-        pitCargoNa.setChecked(false);
-        pitHatchCargo.setChecked(false);
-        pitHatchTop.setChecked(false);
-        pitHatchMiddle.setChecked(false);
-        pitHatchBottom.setChecked(false);
-        pitHatchNa.setChecked(false);
+
     }
 
     private void checkForPermissions() {

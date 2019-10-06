@@ -2,6 +2,8 @@ package com.example.vande.scouting2019.data;
 
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.example.vande.scouting2019.Settings.Settings;
 import com.example.vande.scouting2019.data.TeamsDbHelper;
 import com.example.vande.scouting2019.data.TeamsContract.TeamEntry;
 import android.os.AsyncTask;
@@ -21,8 +23,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-
-
+import com.example.vande.scouting2019.Settings.Settings.SettingsEntry;
 
 public class GetJasonData extends AsyncTask<Void, Void, Void>{
 
@@ -46,7 +47,7 @@ public class GetJasonData extends AsyncTask<Void, Void, Void>{
 
 
         try {
-            URL url = new URL("https://sheets.googleapis.com/v4/spreadsheets/1YNigqBiEWOtHxPNuSBcgPeG_4huC1jqbTbkc721AZ_E/values:batchGet?majorDimension=ROWS&ranges=A2%3AB200&key=AIzaSyD-N8qhcwO6tdMFx6t3ZA6PvwSvb_1D9AE");
+            URL url = new URL(SettingsEntry.teamsUrl);
 
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             InputStream inputStream = httpURLConnection.getInputStream();

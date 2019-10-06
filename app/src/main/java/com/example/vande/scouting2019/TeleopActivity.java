@@ -55,59 +55,6 @@ import static com.example.vande.scouting2019.AutonActivity.TEAMNUMBER_STRING_EXT
 public class TeleopActivity extends AppCompatActivity implements View.OnKeyListener {
     /*This area sets and binds all of the variables that we will use in the auton activity*/
 
-    @BindView(R.id.teleop_cargo_ship_hatch_panel_input_layout)
-    public TextInputLayout teleopCargoShipHatchPanelInputLayout;
-
-    @BindView(R.id.teleop_cargo_in_cargo_ship_input_layout)
-    public TextInputLayout teleopCargoInCargoShipInputLayout;
-
-    @BindView(R.id.teleop_hatch_panel_top_input_layout)
-    public TextInputLayout teleopHatchPanelTopInputLayout;
-
-    @BindView(R.id.teleop_hatch_panel_middle_input_layout)
-    public TextInputLayout teleopHatchPanelMiddleInputLayout;
-
-    @BindView(R.id.teleop_hatch_panel_bottom_input_layout)
-    public TextInputLayout teleopHatchPanelBottomInputLayout;
-
-    @BindView(R.id.teleop_cargo_top_input_layout)
-    public TextInputLayout teleopCargoTopInputLayout;
-
-    @BindView(R.id.teleop_cargo_middle_input_layout)
-    public TextInputLayout teleopCargoMiddleInputLayout;
-
-    @BindView(R.id.teleop_cargo_bottom_input_layout)
-    public TextInputLayout teleopCargoBottomInputLayout;
-
-    @BindView(R.id.teleop_cargo_ship_hatch_panel_input)
-    public TextInputEditText teleopCargoShipHatchPanelInput;
-
-    @BindView(R.id.teleop_cargo_in_cargo_ship_input)
-    public TextInputEditText teleopCargoInCargoShipInput;
-
-    @BindView(R.id.teleop_hatch_panel_top_input)
-    public TextInputEditText teleopHatchPanelTopInput;
-
-    @BindView(R.id.teleop_hatch_panel_middle_input)
-    public TextInputEditText teleopHatchPanelMiddleInput;
-
-    @BindView(R.id.teleop_hatch_panel_bottom_input)
-    public TextInputEditText teleopHatchPanelBottomInput;
-
-    @BindView(R.id.teleop_cargo_top_input)
-    public TextInputEditText teleopCargoTopInput;
-
-    @BindView(R.id.teleop_cargo_middle_input)
-    public TextInputEditText teleopCargoMiddleInput;
-
-    @BindView(R.id.teleop_cargo_bottom_input)
-    public TextInputEditText teleopCargoBottomInput;
-
-    @BindView(R.id.hatch_panel_pickup)
-    public RadioGroup HatchPanelPickup;
-
-    @BindView(R.id.cargo_pickup)
-    public RadioGroup CargoPickup;
 
     @BindView(R.id.defense_effectiveness)
     public RadioGroup defenseEffectiveness;
@@ -121,8 +68,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     @BindView(R.id.overall_effectiveness_radio_group)
     public RadioGroup overallEffectivenessRadioGoup;
 
-    @BindView(R.id.overall_hatch_cargo_placement_radio_group)
-    public RadioGroup overallPlacementRadioGoup;
 
     @BindView(R.id.trained_drive_team_radio_group)
     public RadioGroup trainedDriveTeamRadioGoup;
@@ -148,8 +93,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     @BindView(R.id.observ_fell_over)
     public CheckBox observFellOver;
 
-    @BindView(R.id.observ_hatch_pickup)
-    public CheckBox observHatchPickup;
 
     @BindView(R.id.observ_jerky)
     public CheckBox observJerky;
@@ -171,21 +114,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
     @BindView(R.id.observ_smooth)
     public CheckBox observsmooth;
-
-    @BindView(R.id.observ_average_speed)
-    public CheckBox observAverageSpeed;
-
-    @BindView(R.id.observ_dropped_hatches)
-    public CheckBox observDroppedHatches;
-
-    @BindView(R.id.observ_dropped_cargo)
-    public CheckBox observDroppedCargo;
-
-    @BindView(R.id.observ_hard_time_hatches)
-    public CheckBox observHardTimeHatches;
-
-    @BindView(R.id.observ_hard_time_cargo)
-    public  CheckBox observHardTimeCargo;
 
     @BindView(R.id.summary_input)
     public EditText summaryInput;
@@ -237,14 +165,7 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
         teleopDataStringList = new ArrayList<>();
 
-        displayTeleopCargoShipHatchPanelInput(teleopCargoShipHatchPanel);
-        displayTeleopCargoShipCargoInput(teleopCargoShipCargo);
-        displayTeleopHatchPanelTopInput(teleopHatchPanelTop);
-        displayTeleopHatchPanelMiddleInput(teleopHatchPanelMiddle);
-        displayTeleopHatchPanelBottomInput(teleopHatchPanelBottom);
-        displayTeleopCargoTopInput(teleopCargotop);
-        displayTeleopCargoMiddleInput(teleopCargoMiddle);
-        displayTeleopCargoBottomInput(teleopCargoBottom);
+
 
 
         //  --- End Game Location spinner ---
@@ -280,21 +201,12 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     protected void onResume() {
         super.onResume();
 
-        teleopCargoShipHatchPanelInput.setOnKeyListener(this);
-        teleopCargoInCargoShipInput.setOnKeyListener(this);
-        teleopHatchPanelTopInput.setOnKeyListener(this);
-        teleopHatchPanelMiddleInput.setOnKeyListener(this);
-        teleopHatchPanelBottomInput.setOnKeyListener(this);
-        teleopCargoTopInput.setOnKeyListener(this);
-        teleopCargoTopInput.setOnKeyListener(this);
-        teleopCargoTopInput.setOnKeyListener(this);
+
         defenseEffectiveness.setOnKeyListener(this);
         endGameLocationSpinner.setOnKeyListener(this);
         cycleTimeSpinner.setOnKeyListener(this);
         overallEffectivenessRadioGoup.setOnKeyListener(this);
-        HatchPanelPickup.setOnKeyListener(this);
-        CargoPickup.setOnKeyListener(this);
-        overallPlacementRadioGoup.setOnKeyListener(this);
+
         trainedDriveTeamRadioGoup.setOnKeyListener(this);
         observsmooth.setOnKeyListener(this);
         observSlowedByRobot.setOnKeyListener(this);
@@ -303,7 +215,7 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         observPenalties.setOnKeyListener(this);
         observNotMuch.setOnKeyListener(this);
         observJerky.setOnKeyListener(this);
-        observHatchPickup.setOnKeyListener(this);
+
         observFellOver.setOnKeyListener(this);
         observFellApart.setOnKeyListener(this);
         observFast.setOnKeyListener(this);
@@ -311,11 +223,7 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         observDiedMid.setOnKeyListener(this);
         observDiedBack.setOnKeyListener(this);
         observCargoPickup.setOnKeyListener(this);
-        observAverageSpeed.setOnKeyListener(this);
-        observDroppedHatches.setOnKeyListener(this);
-        observDroppedCargo.setOnKeyListener(this);
-        observHardTimeHatches.setOnKeyListener(this);
-        observHardTimeCargo.setOnKeyListener(this);
+
         summaryInput.setOnKeyListener(this);
         issuesInput.setOnKeyListener(this);
 
@@ -326,21 +234,11 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     protected void onPause() {
         super.onPause();
 
-        teleopCargoShipHatchPanelInput.setOnKeyListener(null);
-        teleopCargoInCargoShipInput.setOnKeyListener(null);
-        teleopHatchPanelTopInput.setOnKeyListener(null);
-        teleopHatchPanelMiddleInput.setOnKeyListener(null);
-        teleopHatchPanelBottomInput.setOnKeyListener(null);
-        teleopCargoTopInput.setOnKeyListener(null);
-        teleopCargoTopInput.setOnKeyListener(null);
-        teleopCargoTopInput.setOnKeyListener(null);
+
         defenseEffectiveness.setOnKeyListener(null);
         endGameLocationSpinner.setOnKeyListener(null);
         cycleTimeSpinner.setOnKeyListener(null);
         overallEffectivenessRadioGoup.setOnKeyListener(null);
-        HatchPanelPickup.setOnKeyListener(null);
-        CargoPickup.setOnKeyListener(null);
-        overallPlacementRadioGoup.setOnKeyListener(null);
         trainedDriveTeamRadioGoup.setOnKeyListener(null);
         observsmooth.setOnKeyListener(null);
         observSlowedByRobot.setOnKeyListener(null);
@@ -349,7 +247,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         observPenalties.setOnKeyListener(null);
         observNotMuch.setOnKeyListener(null);
         observJerky.setOnKeyListener(null);
-        observHatchPickup.setOnKeyListener(null);
         observFellOver.setOnKeyListener(null);
         observFellApart.setOnKeyListener(null);
         observFast.setOnKeyListener(null);
@@ -357,11 +254,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         observDiedMid.setOnKeyListener(null);
         observDiedBack.setOnKeyListener(null);
         observCargoPickup.setOnKeyListener(null);
-        observAverageSpeed.setOnKeyListener(null);
-        observDroppedHatches.setOnKeyListener(null);
-        observDroppedCargo.setOnKeyListener(null);
-        observHardTimeHatches.setOnKeyListener(null);
-        observHardTimeCargo.setOnKeyListener(null);
         summaryInput.setOnKeyListener(null);
         issuesInput.setOnKeyListener(null);
 
@@ -405,156 +297,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         }
     }
 
-    //Teleop Cargo Ship Hatch Panels
-    public void decreaseCargoShipHatchPanelInput(View view) {
-        if (teleopCargoShipHatchPanel != 0) {
-            teleopCargoShipHatchPanel = teleopCargoShipHatchPanel - 1;
-            displayTeleopCargoShipHatchPanelInput(teleopCargoShipHatchPanel);
-        }
-    }
-
-    public void increaseCargoShipHatchPanelInput(View view) {
-        if (teleopCargoShipHatchPanel <= 7) {
-            teleopCargoShipHatchPanel = teleopCargoShipHatchPanel + 1;
-            displayTeleopCargoShipHatchPanelInput(teleopCargoShipHatchPanel);
-        }
-    }
-
-    private void displayTeleopCargoShipHatchPanelInput(int number) {
-        teleopCargoShipHatchPanelInput.setText("" + number);
-    }
-
-    //Teleop Cargo Ship Cargo
-    public void decreaseCargoInCargoShipInput(View view) {
-        if (teleopCargoShipCargo != 0) {
-            teleopCargoShipCargo = teleopCargoShipCargo - 1;
-            displayTeleopCargoShipCargoInput(teleopCargoShipCargo);
-        }
-    }
-
-    public void increaseCargoInCargoShipInput(View view) {
-        if (teleopCargoShipCargo <= 7) {
-            teleopCargoShipCargo = teleopCargoShipCargo + 1;
-            displayTeleopCargoShipCargoInput(teleopCargoShipCargo);
-        }
-    }
-
-    private void displayTeleopCargoShipCargoInput(int number) {
-        teleopCargoInCargoShipInput.setText("" + number);
-    }
-
-    //Teleop Rocket Ship Hatch Panels
-
-    public void decreaseHatchPanelTopInput(View view) {
-        if (teleopHatchPanelTop != 0) {
-            teleopHatchPanelTop = teleopHatchPanelTop - 1;
-            displayTeleopHatchPanelTopInput(teleopHatchPanelTop);
-        }
-    }
-
-    public void increaseHatchPanelTopInput(View view) {
-        if (teleopHatchPanelTop <= 3) {
-            teleopHatchPanelTop = teleopHatchPanelTop + 1;
-            displayTeleopHatchPanelTopInput(teleopHatchPanelTop);
-        }
-    }
-
-    private void displayTeleopHatchPanelTopInput(int number) {
-        teleopHatchPanelTopInput.setText("" + number);
-    }
-
-        public void decreaseHatchPanelMiddleInput(View view) {
-            if (teleopHatchPanelMiddle != 0) {
-                teleopHatchPanelMiddle = teleopHatchPanelMiddle - 1;
-                displayTeleopHatchPanelMiddleInput(teleopHatchPanelMiddle);
-            }
-        }
-
-        public void increaseHatchPanelMiddleInput(View view) {
-            if (teleopHatchPanelMiddle <= 3) {
-                teleopHatchPanelMiddle = teleopHatchPanelMiddle + 1;
-                displayTeleopHatchPanelMiddleInput(teleopHatchPanelMiddle);
-            }
-        }
-
-        private void displayTeleopHatchPanelMiddleInput(int number) {
-            teleopHatchPanelMiddleInput.setText("" + number);
-        }
-
-            public void decreaseHatchPanelBottomInput(View view) {
-                if (teleopHatchPanelBottom != 0) {
-                    teleopHatchPanelBottom = teleopHatchPanelBottom - 1;
-                    displayTeleopHatchPanelBottomInput(teleopHatchPanelBottom);
-                }
-            }
-
-            public void increaseHatchPanelBottomInput(View view) {
-                if (teleopHatchPanelBottom <= 3) {
-                    teleopHatchPanelBottom = teleopHatchPanelBottom + 1;
-                    displayTeleopHatchPanelBottomInput(teleopHatchPanelBottom);
-                }
-            }
-
-            private void displayTeleopHatchPanelBottomInput(int number) {
-                teleopHatchPanelBottomInput.setText("" + number);
-            }
-
-
-    //Teleop Rocket Ship Cargo
-
-    public void decreaseCargoTopInput(View view) {
-        if (teleopCargotop != 0) {
-            teleopCargotop = teleopCargotop - 1;
-            displayTeleopCargoTopInput(teleopCargotop);
-        }
-    }
-
-    public void increaseCargoTopInput(View view) {
-        if (teleopCargotop <= 3) {
-            teleopCargotop = teleopCargotop + 1;
-            displayTeleopCargoTopInput(teleopCargotop);
-        }
-    }
-
-    private void displayTeleopCargoTopInput(int number) {
-        teleopCargoTopInput.setText("" + number);
-    }
-
-    public void decreaseCargoMiddleInput(View view) {
-        if (teleopCargoMiddle != 0) {
-            teleopCargoMiddle = teleopCargoMiddle - 1;
-            displayTeleopCargoMiddleInput(teleopCargoMiddle);
-        }
-    }
-
-    public void increaseCargoMiddleInput(View view) {
-        if (teleopCargoMiddle <= 3) {
-            teleopCargoMiddle = teleopCargoMiddle + 1;
-            displayTeleopCargoMiddleInput(teleopCargoMiddle);
-        }
-    }
-
-    private void displayTeleopCargoMiddleInput(int number) {
-        teleopCargoMiddleInput.setText("" + number);
-    }
-
-    public void decreaseCargoBottomInput(View view) {
-        if (teleopCargoBottom != 0) {
-            teleopCargoBottom = teleopCargoBottom - 1;
-            displayTeleopCargoBottomInput(teleopCargoBottom);
-        }
-    }
-
-    public void increaseCargoBottomInput(View view) {
-        if (teleopCargoBottom <= 3) {
-            teleopCargoBottom = teleopCargoBottom + 1;
-            displayTeleopCargoBottomInput(teleopCargoBottom);
-        }
-    }
-
-    private void displayTeleopCargoBottomInput(int number) {
-        teleopCargoBottomInput.setText("" + number);
-    }
 
 
 
@@ -657,21 +399,6 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
                 break;
             case R.id.observ_fell_over:
                 s1 = observFellOver.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_hatch_pickup:
-                s1 = observHatchPickup.getText().toString() + " |";
                 if (checked) {
                     if (observations.isEmpty()) {
                         observations = s1;
@@ -790,81 +517,7 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
                     }
                 }
                 break;
-            case R.id.observ_average_speed:
-                s1 = observAverageSpeed.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_dropped_hatches:
-                s1 = observDroppedHatches.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_dropped_cargo:
-                s1 = observDroppedCargo.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_hard_time_hatches:
-                s1 = observHardTimeHatches.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_hard_time_cargo:
-                s1 = observHardTimeCargo.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
+
         }
     }
 
@@ -881,37 +534,11 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
                 switch (inputEditText.getId()) {
 
-                    case R.id.teleop_cargo_ship_hatch_panel_input:
+                   /* case R.id.teleop_cargo_ship_hatch_panel_input:
                         teleopCargoShipHatchPanelInputLayout.setError(null);
                         break;
+                   */
 
-                    case R.id.teleop_cargo_in_cargo_ship_input:
-                        teleopCargoInCargoShipInputLayout.setError(null);
-                        break;
-
-                    case R.id.teleop_hatch_panel_top_input:
-                        teleopHatchPanelTopInputLayout.setError(null);
-                        break;
-
-                    case R.id.teleop_hatch_panel_middle_input:
-                        teleopHatchPanelMiddleInputLayout.setError(null);
-                        break;
-
-                    case R.id.teleop_hatch_panel_bottom_input:
-                        teleopHatchPanelBottomInputLayout.setError(null);
-                        break;
-
-                    case R.id.teleop_cargo_top_input:
-                        teleopCargoTopInputLayout.setError(null);
-                        break;
-
-                    case R.id.teleop_cargo_middle_input:
-                        teleopCargoMiddleInputLayout.setError(null);
-                        break;
-
-                    case R.id.teleop_cargo_bottom_input:
-                        teleopCargoBottomInputLayout.setError(null);
-                        break;
                 }
             }
         }
@@ -932,31 +559,10 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         String state = Environment.getExternalStorageState();
         boolean allInputsPassed = false;
 
-        if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopCargoShipHatchPanelInputLayout))) {
+        /*if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopCargoShipHatchPanelInputLayout))) {
             teleopCargoShipHatchPanelInputLayout.setError(getText(R.string.teleopCargoShipHatchPanelError));
             ViewUtils.requestFocus(teleopCargoShipHatchPanelInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopCargoInCargoShipInputLayout))) {
-            teleopCargoInCargoShipInputLayout.setError(getText(R.string.teleopCargoInCargoShipError));
-            ViewUtils.requestFocus(teleopCargoInCargoShipInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopHatchPanelTopInputLayout))) {
-            teleopHatchPanelTopInputLayout.setError(getText(R.string.hatchPanelTopError));
-            ViewUtils.requestFocus(teleopHatchPanelTopInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopHatchPanelMiddleInputLayout))) {
-            teleopHatchPanelMiddleInputLayout.setError(getText(R.string.hatchPanelMiddleError));
-            ViewUtils.requestFocus(teleopHatchPanelMiddleInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopHatchPanelBottomInputLayout))) {
-            teleopHatchPanelBottomInputLayout.setError(getText(R.string.hatchPanelBottomError));
-            ViewUtils.requestFocus(teleopHatchPanelBottomInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopCargoTopInputLayout))) {
-            teleopCargoTopInputLayout.setError(getText(R.string.cargoTopError));
-            ViewUtils.requestFocus(teleopCargoTopInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopCargoMiddleInputLayout))) {
-            teleopCargoMiddleInputLayout.setError(getText(R.string.cargoMiddleError));
-            ViewUtils.requestFocus(teleopCargoMiddleInputLayout, this);
-        } else if (StringUtils.isEmptyOrNull(getTextInputLayoutString(teleopCargoBottomInputLayout))) {
-            teleopCargoBottomInputLayout.setError(getText(R.string.cargoBottomError));
-            ViewUtils.requestFocus(teleopCargoBottomInputLayout, this);
-
+        }*/ if(false){
         } else {
             allInputsPassed = true;
         }
@@ -966,10 +572,9 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
         final RadioButton defenseEffectivenessRadiobtn = findViewById(defenseEffectiveness.getCheckedRadioButtonId());
         final RadioButton overallEffectivenessRadiobtn = findViewById(overallEffectivenessRadioGoup.getCheckedRadioButtonId());
-        final RadioButton overallPlacementRadiobtn = findViewById(overallPlacementRadioGoup.getCheckedRadioButtonId());
+
         final RadioButton trainedDriveTeamRadiobtn = findViewById(trainedDriveTeamRadioGoup.getCheckedRadioButtonId());
-        final RadioButton HatchPanelPickupRadiobtn = findViewById(HatchPanelPickup.getCheckedRadioButtonId());
-        final RadioButton CargoPickupRadiobtn = findViewById(CargoPickup.getCheckedRadioButtonId());
+
 
 
         if(PermissionUtils.getPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -979,21 +584,12 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
                 File file = new File(dir, "Match" + Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID) + ".csv");
 
-                teleopDataStringList.add(getTextInputLayoutString(teleopCargoShipHatchPanelInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopCargoInCargoShipInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopHatchPanelTopInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopHatchPanelMiddleInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopHatchPanelBottomInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopCargoTopInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopCargoMiddleInputLayout));
-                teleopDataStringList.add(getTextInputLayoutString(teleopCargoBottomInputLayout));
-                teleopDataStringList.add(HatchPanelPickupRadiobtn.getText().toString());
-                teleopDataStringList.add(CargoPickupRadiobtn.getText().toString());
+
                 teleopDataStringList.add(defenseEffectivenessRadiobtn.getText().toString());
                 teleopDataStringList.add(endGameLocationSpinner.getSelectedItem().toString());
                 teleopDataStringList.add(cycleTimeSpinner.getSelectedItem().toString());
                 teleopDataStringList.add(overallEffectivenessRadiobtn.getText().toString());
-                teleopDataStringList.add(overallPlacementRadiobtn.getText().toString());
+
                 teleopDataStringList.add(trainedDriveTeamRadiobtn.getText().toString());
                 teleopDataStringList.add(observations);
                 teleopDataStringList.add(summaryInput.getText().toString());
@@ -1025,35 +621,19 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
             finish();
         }
 
-        teleopCargoShipHatchPanelInputLayout.setError(null);
-        teleopCargoInCargoShipInput.setError(null);
-        teleopHatchPanelTopInputLayout.setError(null);
-        teleopHatchPanelMiddleInputLayout.setError(null);
-        teleopHatchPanelBottomInputLayout.setError(null);
-        teleopCargoTopInputLayout.setError(null);
-        teleopCargoMiddleInputLayout.setError(null);
-        teleopCargoBottomInputLayout.setError(null);
 
     }
 
     /*The method will clear all the data in the text fields, checkboxes, and
     * set radio buttons to default*/
     public void clearData(View view) {
-        teleopCargoShipHatchPanelInput.setText("" + teleopCargoShipHatchPanel);
-        teleopCargoInCargoShipInput.setText("" + teleopCargoShipCargo);
-        teleopHatchPanelTopInput.setText("" + teleopHatchPanelTop);
-        teleopHatchPanelMiddleInput.setText("" + teleopHatchPanelMiddle);
-        teleopHatchPanelBottomInput.setText("" + teleopHatchPanelBottom);
-        teleopCargoTopInput.setText("" + teleopCargotop);
-        teleopCargoMiddleInput.setText("" + teleopCargoMiddle);
-        teleopCargoBottomInput.setText("" + teleopCargoBottom);
+
         defenseEffectiveness.clearCheck();
         endGameLocationSpinner.setSelection(0);
         cycleTimeSpinner.setSelection(0);
-        HatchPanelPickup.clearCheck();
-        CargoPickup.clearCheck();
+
         overallEffectivenessRadioGoup.clearCheck();
-        overallPlacementRadioGoup.clearCheck();
+
         trainedDriveTeamRadioGoup.clearCheck();
         observsmooth.setChecked(false);
         observSlowedByRobot.setChecked(false);
@@ -1062,7 +642,7 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         observPenalties.setChecked(false);
         observNotMuch.setChecked(false);
         observJerky.setChecked(false);
-        observHatchPickup.setChecked(false);
+
         observFellOver.setChecked(false);
         observFellApart.setChecked(false);
         observFast.setChecked(false);
@@ -1070,11 +650,7 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         observDiedMid.setChecked(false);
         observDiedBack.setChecked(false);
         observCargoPickup.setChecked(false);
-        observAverageSpeed.setChecked(false);
-        observDroppedHatches.setChecked(false);
-        observDroppedCargo.setChecked(false);
-        observHardTimeHatches.setChecked(false);
-        observHardTimeCargo.setChecked(false);
+
         summaryInput.setText(null);
         issuesInput.setText(null);
 

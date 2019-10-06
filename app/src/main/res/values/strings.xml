@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Scouting 2019 Deep Space</string>
+    <string name="app_name">2019 SkyStone</string>
 
     <string name="sendData">Send Data</string>
     <string name="submitInitials">Submit</string>
 
-    <string name="mainAuthor">Ken and Nate are the best! Revised 4/20/19</string>
+    <string name="mainAuthor">Revision Date 9/22/19</string>
 
 
 
@@ -29,33 +29,21 @@
 
     <string name="teamNumberHeading">Team Number</string>
     <string name="matchNumberHeading">Match Number</string>
+
+
+
     <string name="startingLocationHeading">Starting Location</string>
-    <string name="movedOffHab">Moved off Hab?</string>
-    <string name="movedOffHabNo">No</string>
-    <string name="movedOffHabYes">Yes</string>
+    <!--Starting Location Choices -->
     <string-array name="startingLocation">
-        <item>Low Deck</item>
-        <item>Middle Deck</item>
-
+        <item>Choice 1</item>
+        <item>Choice 2</item>
     </string-array>
 
-    <string name="playStyleHeading">How did the team play during SandStorm?</string>
 
-    <string-array name="playStyle">
-        <item> </item>
-        <item>Autonomous</item>
-        <item>Driver-Operated</item>
-        <item>Didn\'t Move</item>
 
-    </string-array>
-    <string name="HintA">Cargo Ship: Hatch Panel</string>
-    <string name="HintB">Cargo Ship: Cargo</string>
-    <string name="HintC">Rocket: Lower Level Hatch Panel</string>
-    <string name="HintD">Rocket: Lower Level Cargo</string>
-    <string name="HintE">Rocket: Middle Level Hatch Panel</string>
-    <string name="HintF">Rocket: Middle Level Cargo</string>
-    <string name="HintG">Rocket: Upper Level Hatch Panel</string>
-    <string name="HintH">Rocket: Upper Level Cargo</string>
+
+
+
 
     <string name="saveButton">Save</string>
 
@@ -205,80 +193,6 @@
     <string name="defenseInPerimeter">Is your robot able to  retract all components within its perimeter in order to play defense?</string>
     <string name="defenseInPerimeterYes">Yes</string>
     <string name="defenseInPerimeterNo">No</string>
-
-
-    <!-- Team Numbers drop down array -->
-    <string-array name="teamNumbers">
-        <item>Select Team Number</item>
-        <item>16</item>
-        <item>51</item>
-        <item>88</item>
-        <item>103</item>
-        <item>125</item>
-        <item>175</item>
-        <item>190</item>
-        <item>191</item>
-        <item>217</item>
-        <item>225</item>
-        <item>236</item>
-        <item>245</item>
-        <item>250</item>
-        <item>353</item>
-        <item>365</item>
-        <item>449</item>
-        <item>503</item>
-        <item>771</item>
-        <item>772</item>
-        <item>836</item>
-        <item>868</item>
-        <item>1024</item>
-        <item>1058</item>
-        <item>1218</item>
-        <item>1317</item>
-        <item>1676</item>
-        <item>1690</item>
-        <item>1781</item>
-        <item>1792</item>
-        <item>1918</item>
-        <item>1923</item>
-        <item>2265</item>
-        <item>2337</item>
-        <item>2500</item>
-        <item>2502</item>
-        <item>2771</item>
-        <item>2791</item>
-        <item>2830</item>
-        <item>3044</item>
-        <item>3146</item>
-        <item>3381</item>
-        <item>3542</item>
-        <item>3555</item>
-        <item>3604</item>
-        <item>3618</item>
-        <item>3624</item>
-        <item>3667</item>
-        <item>3707</item>
-        <item>3926</item>
-        <item>4143</item>
-        <item>4253</item>
-        <item>4381</item>
-        <item>4481</item>
-        <item>5084</item>
-        <item>5348</item>
-        <item>5501</item>
-        <item>5567</item>
-        <item>5811</item>
-        <item>5943</item>
-        <item>5951</item>
-        <item>6401</item>
-        <item>6806</item>
-        <item>7462</item>
-        <item>7480</item>
-        <item>7651</item>
-        <item>7673</item>
-        <item>7719</item>
-        <item>7885</item>
-    </string-array>
 
 
     <!-- Programming drop down array -->
