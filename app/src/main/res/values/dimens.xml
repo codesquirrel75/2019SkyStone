@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="heading">14pt</dimen>
+    <dimen name="title">10pt</dimen>
+    <dimen name="text">9pt</dimen>
+    <dimen name="spinner">30pt</dimen>
+    <dimen name="radioButton">9pt</dimen>
+    <dimen name="margin">10dp</dimen>
+</resources>

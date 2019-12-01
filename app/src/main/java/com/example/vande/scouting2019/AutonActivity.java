@@ -55,6 +55,25 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
 
 
 
+    @BindView(R.id.skystone_counter_input_layout)
+    public TextInputLayout skystoneCounterInputLayout;
+
+    @BindView(R.id.skystone_counter_input)
+    public TextInputEditText skystoneCounterInput;
+
+    @BindView(R.id.regular_stone_counter_input_layout)
+    public TextInputLayout regularStoneCounterInputLayout;
+
+    @BindView(R.id.regular_stone_counter_input)
+    public TextInputEditText regularStoneCounterInput;
+
+    @BindView(R.id.stones_placed_counter_input_layout)
+    public TextInputLayout stonesPlacedCounterInputLayout;
+
+    @BindView(R.id.stones_placed_counter_input)
+    public TextInputEditText stonesPlacedCounterInput;
+
+
     @BindView(R.id.team_number_spinner)
     public Spinner TeamNumberInputLayout;
 
@@ -67,8 +86,12 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
     @BindView(R.id.starting_location)
     public Spinner startingLocation;
 
-    @BindView(R.id.game_piece_pre_loaded)
-    public RadioGroup GamePiecePreLoaded;
+
+    @BindView(R.id.moved_foundation_radio_group)
+    public RadioGroup movedFoundationRadioGroup;
+
+    @BindView(R.id.end_position_radio_group)
+    public RadioGroup endPositionRadioGroup;
 
 
 
@@ -76,6 +99,9 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
     @BindView(R.id.next_button)
     public Button nextButton;
 
+    int skystoneCounterValue = 0;
+    int regularStoneCounterValue = 0;
+    int stonesPlacedCounterValue = 0;
 
 
 
@@ -104,6 +130,11 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
 
 
 
+        displaySkystoneCounterInput(skystoneCounterValue);
+        displayRegularStoneCounterInput(regularStoneCounterValue);
+        displayStonesPlacedCounterInput(stonesPlacedCounterValue);
+
+
         //  --- Team Numbers spinner ---
 
         Spinner teamnumberspinner = (Spinner) findViewById(R.id.team_number_spinner);
@@ -125,11 +156,14 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
         super.onResume();
 
         autonDataStringList.clear();
-
+        skystoneCounterInput.setOnKeyListener(this);
+        regularStoneCounterInput.setOnKeyListener(this);
+        stonesPlacedCounterInput.setOnKeyListener(this);
         TeamNumberInputLayout.setOnKeyListener(this);
         matchNumberInput.setOnKeyListener(this);
         startingLocation.setOnKeyListener(this);
-        GamePiecePreLoaded.setOnKeyListener(this);
+        movedFoundationRadioGroup.setOnKeyListener(this);
+        endPositionRadioGroup.setOnKeyListener(this);
 
 
     }
@@ -139,10 +173,14 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
     protected void onPause() {
         super.onPause();
 
+        skystoneCounterInput.setOnKeyListener(null);
+        regularStoneCounterInput.setOnKeyListener(null);
+        stonesPlacedCounterInput.setOnKeyListener(null);
         TeamNumberInputLayout.setOnKeyListener(null);
         matchNumberInput.setOnKeyListener(null);
         startingLocation.setOnKeyListener(null);
-        GamePiecePreLoaded.setOnKeyListener(null);
+        movedFoundationRadioGroup.setOnKeyListener(null);
+        endPositionRadioGroup.setOnKeyListener(null);
 
     }
 
@@ -172,6 +210,57 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
         }
     }
 
+
+    public void decreaseSkystoneCounterInput(View view) {
+        if (skystoneCounterValue != 0) {
+            skystoneCounterValue = skystoneCounterValue - 1;
+            displaySkystoneCounterInput(skystoneCounterValue);
+        }
+    }
+
+    public void increaseSkystoneCounterInput(View view) {
+        if (skystoneCounterValue <= 7) {
+            skystoneCounterValue = skystoneCounterValue + 1;
+            displaySkystoneCounterInput(skystoneCounterValue);
+        }
+    }
+    private void displaySkystoneCounterInput(int number) {
+        skystoneCounterInput.setText("" + number);
+    }
+
+    public void decreaseRegularStoneCounterInput(View view) {
+        if (regularStoneCounterValue != 0) {
+            regularStoneCounterValue = regularStoneCounterValue - 1;
+            displayRegularStoneCounterInput(regularStoneCounterValue);
+        }
+    }
+
+    public void increaseRegularStoneCounterInput(View view) {
+        if (regularStoneCounterValue <= 7) {
+            regularStoneCounterValue = regularStoneCounterValue + 1;
+            displayRegularStoneCounterInput(regularStoneCounterValue);
+        }
+    }
+    private void displayRegularStoneCounterInput(int number) {
+        regularStoneCounterInput.setText("" + number);
+    }
+
+    public void decreaseStonesPlacedCounterInput(View view) {
+        if (stonesPlacedCounterValue != 0) {
+            stonesPlacedCounterValue = stonesPlacedCounterValue - 1;
+            displayStonesPlacedCounterInput(stonesPlacedCounterValue);
+        }
+    }
+
+    public void increaseStonesPlacedCounterInput(View view) {
+        if (stonesPlacedCounterValue <= 7) {
+            stonesPlacedCounterValue = stonesPlacedCounterValue + 1;
+            displayStonesPlacedCounterInput(stonesPlacedCounterValue);
+        }
+    }
+    private void displayStonesPlacedCounterInput(int number) {
+        stonesPlacedCounterInput.setText("" + number);
+    }
 
     /*This method will look at all of the text/number input fields and set error
     *for validation of data entry
@@ -224,15 +313,19 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
             return;
         }
 
-        final RadioButton PreLoadRadiobtn = findViewById(GamePiecePreLoaded.getCheckedRadioButtonId());
 
+        final RadioButton moveFoundationRadiobtn = findViewById(movedFoundationRadioGroup.getCheckedRadioButtonId());
+        final RadioButton endPositionRadiobtn = findViewById(endPositionRadioGroup.getCheckedRadioButtonId());
 
 
         autonDataStringList.add(TeamNumberInputLayout.getSelectedItem().toString());
         autonDataStringList.add(getTextInputLayoutString(matchNumberInputLayout));
         autonDataStringList.add(startingLocation.getSelectedItem().toString());
-        autonDataStringList.add(PreLoadRadiobtn.getText().toString());
-
+        autonDataStringList.add(getTextInputLayoutString(skystoneCounterInputLayout));
+        autonDataStringList.add(getTextInputLayoutString(regularStoneCounterInputLayout));
+        autonDataStringList.add(getTextInputLayoutString(stonesPlacedCounterInputLayout));
+        autonDataStringList.add(moveFoundationRadiobtn.getText().toString());
+        autonDataStringList.add(endPositionRadiobtn.getText().toString());
 
 
         final Intent intent = new Intent(this, TeleopActivity.class);
@@ -268,10 +361,18 @@ public class AutonActivity extends AppCompatActivity implements View.OnKeyListen
     /*This method will clear all of the text entry fields as well
     * as reset the checkboxes and reset the radio buttons to their default*/
     public void clearData() {
+        skystoneCounterValue = 0;
+        regularStoneCounterValue = 0;
+        stonesPlacedCounterValue = 0;
+
         TeamNumberInputLayout.setSelection(0);
         matchNumberInput.setText("");
         startingLocation.setSelection(0);
-        GamePiecePreLoaded.check(R.id.piece_nothing);
+        skystoneCounterInput.setText("" + skystoneCounterValue);
+        regularStoneCounterInput.setText("" + regularStoneCounterValue);
+        stonesPlacedCounterInput.setText("" + stonesPlacedCounterValue);
+        movedFoundationRadioGroup.check(R.id.moved_foundation_no);
+        endPositionRadioGroup.check(R.id.end_position_no);
 
 
 

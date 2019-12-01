@@ -1,12 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">2019 SkyStone</string>
+    <string name="revision_date">Revision Date 9/22/19</string>
+    <string name="mainAuthor">Ken Robinson</string>
 
+
+    <!--  Button Strings  -->
     <string name="sendData">Send Data</string>
     <string name="submitInitials">Submit</string>
+    <string name="saveButton">Save</string>
+    <string name="nextButton">Move To Teleop</string>
+    <string name="takePhotoButton">Take Photo</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 
-    <string name="mainAuthor">Revision Date 9/22/19</string>
+    <!--  General Strings  -->
 
+    <string name="Yes">Yes</string>
+    <string name="No">No</string>
+    <string name="na">N/A</string>
+    <string name="success">Success</string>
+    <string name="fail">Fail</string>
 
 
     <!-- Send Data Strings-->
@@ -20,10 +34,9 @@
     <string name="sendPitData">Send Pit Data</string>
     <string name="sendMatchData">Send Match Data</string>
     
-    <!-- Button Strings -->
 
-    <string name="minus">-</string>
-    <string name="plus">+</string>
+
+
     
     <!--Auton Strings-->
 
@@ -33,10 +46,13 @@
 
 
     <string name="startingLocationHeading">Starting Location</string>
+
     <!--Starting Location Choices -->
+
     <string-array name="startingLocation">
-        <item>Choice 1</item>
-        <item>Choice 2</item>
+        <item></item>
+        <item>Loading zone</item>
+        <item>Building zone</item>
     </string-array>
 
 
@@ -45,27 +61,25 @@
 
 
 
-    <string name="saveButton">Save</string>
 
 
-    <!--Auton Error Strings-->
+
+    <!--Error Strings-->
 
     <string name="teamNumberError">Enter in team number</string>
     <string name="matchNumberError">Enter in match number</string>
     <string name="startingLocationError">Enter starting location</string>
+    <string name="pitTeamNumberError">Select a team number</string>
+    <string name="pitProgrammingLanguageError">Enter Programming Language</string>
+    <string name="robotNameError">Enter Robot Name</string>
+    <string name="pitRobotWeightError">Enter Robot Weight</string>
+    <string name="scouterInitialsError">Enter Scouter Initials</string>
+
+
 
     <!--Teleop Strings-->
 
-    <string name="cargoShipTitle">Cargo Ship</string>
-    <string name="rocketShipTitle">Rocket Ship</string>
-    <string name="hatchPanelsOnCargoShip">Hatch Panels on Cargo Ship</string>
-    <string name="cargoInCargoShip">Cargo in Cargo Ship</string>
-    <string name="hatchPanelTop">Hatch Panel Top</string>
-    <string name="hatchPanelMiddle">Hatch Panel Middle</string>
-    <string name="hatchPanelBottom">Hatch Panel Bottom</string>
-    <string name="cargoTop">Cargo Top</string>
-    <string name="cargoMiddle">Cargo Middle</string>
-    <string name="cargoBottom">Cargo Bottom</string>
+
     <string name="defenseQuestion">How effective was the robot\'s defense?</string>
     <string name="endgameHeading">Where was the robot at end game?</string>
     <string name="generalInfoHeading">General Info</string>
@@ -73,20 +87,10 @@
     <string name="over_all_Effectiveness_heading">Rate the overall effectiveness of the robot during the match.</string>
     <string name="trained_drive_team_heading">How trained did the drive team look?</string>
 
-    <string name="over_all_placement">Rate the overall placement of cargo and hatch panels</string>
+
     <string name="observ_average_speed">Average Speed</string>
-    <string name="observ_dropped_hatches">Dropped a lot of hatches</string>
-    <string name="observ_dropped_cargo">Dropped a lot of cargo</string>
-    <string name="observ_hard_time_hatches">Had a hard time placing hatches</string>
-    <string name="observ_hard_time_cargo">Had a hard time placing cargo</string>
-    <string name="hatch_pickup">How did the robot pick up hatch panels?</string>
-    <string name="cargo_pickup">How did the robot pick up cargo?</string>
-    <string name="hatch_panel_pickup_na">N/A</string>
-    <string name="hatch_panel_pickup_port">At the port</string>
-    <string name="hatch_panel_pickup_floor">Off the floor</string>
-    <string name="cargo_pickup_na">N/A</string>
-    <string name="cargo_pickup_port">At the port</string>
-    <string name="cargo_pickup_floor">Off the floor</string>
+
+
     <string name="robotObservations">Robot Observations</string>
     <string name="summaryHeading">In summary what did the robot do well?</string>
     <string name="issuesHeading">List any issues the robot had.</string>
@@ -105,8 +109,6 @@
     <string name="observ_fell_apart">Robot fell apart</string>
     <string name="observ_played_defense">Played defense most of the match</string>
     <string name="observ_not_much">Didn\'t do much</string>
-    <string name="observ_hatch_pickup">Had hard time picking up hatch panels</string>
-    <string name="observ_cargo_pickup">Had hard time picking up cargo</string>
     <string name="observ_slowed_by_robot">Had defense played against them</string>
     <string name="observ_dns">Didn\'t show up</string>
 
@@ -138,7 +140,7 @@
     <string name="noDefense">N/A</string>
 
     <string name="fouls">Fouls</string>
-    <string name="nextButton">Move To Teleop</string>
+
 
     <string name="scouterInitials">Scouter Initials</string>
 
@@ -169,7 +171,7 @@
     <string name="pitProgrammingLanguage">Programming Language</string>
     <string name="pitStartingHabPositionText">On what habitat platform do you prefer to start from?</string>
     <string name="pitPreLoadText">What game piece do you preload?</string>
-    <string name="robotPreLoadText">What game piece was preloaded?</string>
+    <string name="robotPreLoadText">Was a capstone preloaded?</string>
     <string name="pitHatch">Hatch panel</string>
     <string name="pitCargo">Cargo</string>
     <string name="pitNothing">Nothing</string>
@@ -213,12 +215,7 @@
         <item>Other</item>
     </string-array>
 
-    <!-- Hab Platform drop down array -->
-    <string-array name="habPlatform">
-        <item>Lowest deck</item>
-        <item>Middle deck</item>
-        <item>Highest deck</item>
-    </string-array>
+
 
     <string-array name="endgame">
         <item>Cargo</item>
@@ -252,36 +249,51 @@
 
     </string-array>
 
-    <string name="pitJava">Java</string>
-    <string name="pitCpp">C++</string>
-    <string name="pitLabview">LabVIEW</string>
-    <string name="pitOther">Other</string>
+
     <string name="pitRobotWeightTextView">How much does your robot weigh?</string>
     <string name="pitRobotArcadeGame">What old arcade game would your robot be in?</string>
-    <string name="savePitButton">Save</string>
-
-    <string name="takePhotoButton">Take Photo</string>
-
-    <!-- Pit Error Strings -->
-    <string name="pitTeamNumberError">Select a team number</string>
-    <string name="pitProgrammingLanguageError">Enter Programming Language</string>
-    <string name="robotNameError">Enter Robot Name</string>
-    <string name="pitRobotWeightError">Enter Robot Weight</string>
-
-    <!--  Teleop Error Strings -->
-    <string name="teleopCargoShipHatchPanelError">Enter Cargo Ship Hatch Panels</string>
-    <string name="teleopCargoInCargoShipError">Enter Cargo Ship Cargo</string>
-    <string name="hatchPanelTopError">Enter Top HatchPanels</string>
-    <string name="hatchPanelMiddleError">Enter Middle Hatch Panels</string>
-    <string name="hatchPanelBottomError">Enter Bottom Hatch Panels</string>
-    <string name="cargoTopError">Enter Top Cargo</string>
-    <string name="cargoMiddleError">Enter Middle Cargo</string>
-    <string name="cargoBottomError">Enter Bottom Cargo</string>
-    <string name="scouterInitialsError">Enter Scouter Initials</string>
-    <string name="hatch_panel_pickup_both">Both</string>
-    <string name="cargo_pickup_both">Both</string>
 
 
+
+
+
+
+
+
+
+    <!--  Game questions  -->
+
+    <string name="game_capstone">Does the robot preload a capstone?</string>
+    <string name="game_foundation">Can the robot move the foundation?</string>
+    <string name="game_stoneDelivery">Can the robot deliver stones through the alliance bridge?</string>
+    <string name="game_mid_field_tape">Did the robot park over the midfield  tape at the end of auton?</string>
+    <string name="game_delivered_stones">Did the robot Deliver any stones?</string>
+    <string name="game_stack_stones">Did the robot stack any stones on the foundation?</string>
+    <string name="game_move_foundation">Did the robot move the foundation?</string>
+    <string name="tel_stone_delivered">Does the robot deliver stones through the alliance bridge?</string>
+    <string name="tel_stack_stones">Does the robot stack stones on the foundation?</string>
+    <string name="tel_move_foundation">Did the robot move the foundation?</string>
+    <string name="tel_end_position">Did the robot park in the build site at end game?</string>
+    <string name="tel_capstone">Did the robot place it\'s capstone?</string>
+
+
+    <!--  Pit Questions  -->
+
+    <string name="pit_capstone">Do you preload a capstone?</string>
+    <string name="pit_foundation">Can your robot hook to and move the foundation?</string>
+    <string name="pit_stone_delivery">Can your robot deliver stones through the alliance bridge?</string>
+    <string name="pit_mid_field_tape">Does your robot park over the midfield tape at the end of auton?</string>
+    <string name="stone_counterStringhint">How many stones did they deliver through alliance bridge?</string>
+    <string name="stackCounterStringhint">How many stones did they stack?</string>
+    <string name="stone_counter_lable" />
+    <string name="stone_counter_label">How many stones did they deliver through alliance bridge?</string>
+    <string name="bridge_counter_label">How many stones did they place?</string>
+    <string name="stones_placed_counter_label">How many stones did they place on foundation?</string>
+    <string name="skystone_delivered_counter_label">How many skystones did they deliver?</string>
+    <string name="stone_delivered_counter_label">How many regular stones did they deliver?</string>
+    <string name="skystone_counterStringhint">Skystones delivered</string>
+    <string name="regularstoneCounterStringhint">Regular stones delivered</string>
+    <string name="stones_placed_counterStringhint">Stones Placed</string>
 
 
 </resources>

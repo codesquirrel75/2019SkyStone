@@ -19,25 +19,25 @@
           android:orientation="vertical">
 
 
-                <TextView
-                      android:id="@+id/pit_teamNumber_input_layout"
-                      android:layout_width="match_parent"
-                      android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:ems="10"
-                      android:textSize="10pt"
-                      android:text="@string/pitTeamNumberHeading"/>
-                <Spinner
-                      android:id="@+id/pit_team_number_spinner"
-                      android:layout_width="match_parent"
-                      android:layout_height="30pt"
-                    android:layout_weight="1">
-                </Spinner>
-
+            <TextView
+                  android:id="@+id/pit_teamNumber_input_layout"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:layout_weight="1"
+                  android:ems="10"
+                  android:textSize="@dimen/title"
+                  android:text="@string/pitTeamNumberHeading"/>
+            <Spinner
+                  android:id="@+id/pit_team_number_spinner"
+                  android:layout_width="match_parent"
+                  android:layout_height="30pt"
+                android:layout_weight="1">
+            </Spinner>
+<!--
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="8pt"
+                android:textSize="@dimen/text"
                 android:text="@string/pitRobotWeightTextView"/>
 
             <EditText
@@ -50,42 +50,166 @@
 
 
 
-                <TextView
-                    android:id="@+id/pit_driveTrain_input_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:textSize="10pt"
-                    android:text="@string/pitDriveTrain"/>
-                <Spinner
-                    android:id="@+id/pit_drive_train_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="30pt">
+            <TextView
+                android:id="@+id/pit_driveTrain_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:textSize="@dimen/title"
+                android:text="@string/pitDriveTrain"/>
+            <Spinner
+                android:id="@+id/pit_drive_train_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner">
 
-                </Spinner>
+            </Spinner>
+-->
+            <TextView
+                android:id="@+id/pit_programmingLanguage_input_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:textSize="@dimen/title"
+                android:text="@string/pitProgrammingLanguage"/>
+            <Spinner
+                android:id="@+id/pit_programming_language_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner">
 
-                <TextView
-                    android:id="@+id/pit_programmingLanguage_input_layout"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:ems="10"
-                    android:textSize="10pt"
-                    android:text="@string/pitProgrammingLanguage"/>
-                <Spinner
-                    android:id="@+id/pit_programming_language_spinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="30pt">
+            </Spinner>
+<!--    //  ******************  ^^ Default Questions above. **********      -->
 
-                </Spinner>
-//  ******************  ^^ Default Questions above. **************
-
-            // ***************** Game Specific Questions *************
+<!--       // ***************** Game Specific Questions **************      -->
 
 
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical">
 
-// ************* Default questions and buttons **************
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="@string/pit_capstone"
+                   android:textSize="@dimen/title"/>
+
+               <RadioGroup
+                   android:id="@+id/pit_capstone_radio_group"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:checkedButton="@id/pit_capstone_no">
+
+                   <RadioButton
+                       android:id="@+id/pit_capstone_yes"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/Yes"
+                       android:textSize="@dimen/radioButton"/>
+                   <RadioButton
+                       android:id="@+id/pit_capstone_no"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/No"
+                       android:textSize="@dimen/radioButton"/>
+
+               </RadioGroup>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/title"
+                   android:text="@string/pit_foundation"/>
+
+               <RadioGroup
+                   android:id="@+id/pit_foundation_radio_group"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:checkedButton="@id/pit_foundation_no">
+
+                   <RadioButton
+                       android:id="@+id/pit_foundation_yes"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/Yes"
+                       android:textSize="@dimen/radioButton"/>
+                   <RadioButton
+                       android:id="@+id/pit_foundation_no"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/No"
+                       android:textSize="@dimen/radioButton"/>
+
+               </RadioGroup>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/title"
+                   android:text="@string/pit_stone_delivery"/>
+
+               <RadioGroup
+                   android:id="@+id/pit_stone_delivery_radio_group"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:checkedButton="@id/pit_stone_delivery_no">
+
+                   <RadioButton
+                       android:id="@+id/pit_stone_delivery_yes"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/Yes"
+                       android:textSize="@dimen/radioButton"/>
+                   <RadioButton
+                       android:id="@+id/pit_stone_delivery_no"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/No"
+                       android:textSize="@dimen/radioButton"/>
+
+               </RadioGroup>
+
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:textSize="@dimen/title"
+                   android:text="@string/pit_mid_field_tape"/>
+
+               <RadioGroup
+                   android:id="@+id/pit_mid_field_tape_radio_group"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:checkedButton="@id/pit_mid_field_tape_no">
+
+                   <RadioButton
+                       android:id="@+id/pit_mid_field_tape_yes"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/Yes"
+                       android:textSize="@dimen/radioButton"/>
+                   <RadioButton
+                       android:id="@+id/pit_mid_field_tape_no"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:text="@string/No"
+                       android:textSize="@dimen/radioButton"/>
+
+               </RadioGroup>
+
+
+
+           </LinearLayout>
+
+
+<!--        // *******************************************************      -->
+
+<!--    // ************* Default questions and buttons ***************      -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -127,7 +251,7 @@
                 android:layout_height="30pt"
                 android:onClick="savePitData"
                 android:textSize="12pt"
-                android:text="@string/savePitButton" />
+                android:text="@string/saveButton" />
 
 
 

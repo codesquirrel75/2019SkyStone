@@ -56,88 +56,36 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     /*This area sets and binds all of the variables that we will use in the auton activity*/
 
 
-    @BindView(R.id.defense_effectiveness)
-    public RadioGroup defenseEffectiveness;
+    @BindView(R.id.stone_counter_input_layout)
+    public TextInputLayout stoneCounterInputLayout;
 
-    @BindView(R.id.end_game_location_spinner)
-    public Spinner endGameLocationSpinner;
+    @BindView(R.id.stone_counter_input)
+    public TextInputEditText stoneCounterInput;
 
-    @BindView(R.id.cycle_time_spinner)
-    public Spinner cycleTimeSpinner;
+    @BindView(R.id.bridge_counter_input_layout)
+    public TextInputLayout bridgeCounterInputLayout;
 
-    @BindView(R.id.overall_effectiveness_radio_group)
-    public RadioGroup overallEffectivenessRadioGoup;
-
-
-    @BindView(R.id.trained_drive_team_radio_group)
-    public RadioGroup trainedDriveTeamRadioGoup;
-
-    @BindView(R.id.observ_cargo_pickup)
-    public CheckBox observCargoPickup;
-
-    @BindView(R.id.observ_died_back)
-    public CheckBox observDiedBack;
-
-    @BindView(R.id.observ_died_mid)
-    public CheckBox observDiedMid;
-
-    @BindView(R.id.observ_dns)
-    public CheckBox observDns;
-
-    @BindView(R.id.observ_fast)
-    public CheckBox observFast;
-
-    @BindView(R.id.observ_fell_apart)
-    public CheckBox observFellApart;
-
-    @BindView(R.id.observ_fell_over)
-    public CheckBox observFellOver;
+    @BindView(R.id.bridge_counter_input)
+    public TextInputEditText bridgeCounterInput;
 
 
-    @BindView(R.id.observ_jerky)
-    public CheckBox observJerky;
+    @BindView(R.id.tel_moved_foundation_radio_group)
+    public  RadioGroup telMovedFoundationRadioGroup;
 
-    @BindView(R.id.observ_not_much)
-    public CheckBox observNotMuch;
+    @BindView(R.id.tel_end_position_radio_group)
+    public RadioGroup telEndPositionRadioGroup;
 
-    @BindView(R.id.observ_penalties)
-    public CheckBox observPenalties;
+    @BindView(R.id.tel_capstone_radio_group)
+    public RadioGroup telCapstoneRadioGroup;
 
-    @BindView(R.id.observ_played_defense)
-    public CheckBox observPlayedDefense;
-
-    @BindView(R.id.observ_slow)
-    public CheckBox observSlow;
-
-    @BindView(R.id.observ_slowed_by_robot)
-    public CheckBox observSlowedByRobot;
-
-    @BindView(R.id.observ_smooth)
-    public CheckBox observsmooth;
-
-    @BindView(R.id.summary_input)
-    public EditText summaryInput;
-
-    @BindView(R.id.issues_input)
-    public EditText issuesInput;
 
     public String observations = "";
 
     @BindView(R.id.save_btn)
     public Button saveBtn;
 
-    int teleopCargoShipHatchPanel = 0;
-    int teleopCargoShipCargo = 0;
-    int teleopHatchPanelTop = 0;
-    int teleopHatchPanelMiddle = 0;
-    int teleopHatchPanelBottom =0;
-    int teleopCargotop = 0;
-    int teleopCargoMiddle = 0;
-    int teleopCargoBottom = 0;
-
-
-
-
+    int stoneCounterValue = 0;
+    int bridgeCounterValue = 0;
 
     public String auton;
     public String matchNumber;
@@ -163,33 +111,11 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
         getSupportActionBar().setTitle("Match: " + matchNumber + " - Team: " + teamNumber);
 
+
+
         teleopDataStringList = new ArrayList<>();
-
-
-
-
-        //  --- End Game Location spinner ---
-
-        Spinner endgamelocationspinner = (Spinner) findViewById(R.id.end_game_location_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> endgamelocationadapter = ArrayAdapter.createFromResource(this,
-                R.array.endgame_location, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        endgamelocationadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        endgamelocationspinner.setAdapter(endgamelocationadapter);
-
-
-        //  --- Cycle Time spinner ---
-
-        Spinner cycletimespinner = (Spinner) findViewById(R.id.cycle_time_spinner);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> cycletimeadapter = ArrayAdapter.createFromResource(this,
-                R.array.cycle_time_spinner, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
-        cycletimeadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
-        cycletimespinner.setAdapter(cycletimeadapter);
+        displayStoneCounterInput(stoneCounterValue);
+        displayBridgeCounterInput(bridgeCounterValue);
 
     }
 
@@ -201,31 +127,11 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     protected void onResume() {
         super.onResume();
 
-
-        defenseEffectiveness.setOnKeyListener(this);
-        endGameLocationSpinner.setOnKeyListener(this);
-        cycleTimeSpinner.setOnKeyListener(this);
-        overallEffectivenessRadioGoup.setOnKeyListener(this);
-
-        trainedDriveTeamRadioGoup.setOnKeyListener(this);
-        observsmooth.setOnKeyListener(this);
-        observSlowedByRobot.setOnKeyListener(this);
-        observSlow.setOnKeyListener(this);
-        observPlayedDefense.setOnKeyListener(this);
-        observPenalties.setOnKeyListener(this);
-        observNotMuch.setOnKeyListener(this);
-        observJerky.setOnKeyListener(this);
-
-        observFellOver.setOnKeyListener(this);
-        observFellApart.setOnKeyListener(this);
-        observFast.setOnKeyListener(this);
-        observDns.setOnKeyListener(this);
-        observDiedMid.setOnKeyListener(this);
-        observDiedBack.setOnKeyListener(this);
-        observCargoPickup.setOnKeyListener(this);
-
-        summaryInput.setOnKeyListener(this);
-        issuesInput.setOnKeyListener(this);
+        stoneCounterInput.setOnKeyListener(this);
+        bridgeCounterInput.setOnKeyListener(this);
+        telMovedFoundationRadioGroup.setOnKeyListener(this);
+        telEndPositionRadioGroup.setOnKeyListener(this);
+        telCapstoneRadioGroup.setOnKeyListener(this);
 
     }
 
@@ -235,27 +141,11 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         super.onPause();
 
 
-        defenseEffectiveness.setOnKeyListener(null);
-        endGameLocationSpinner.setOnKeyListener(null);
-        cycleTimeSpinner.setOnKeyListener(null);
-        overallEffectivenessRadioGoup.setOnKeyListener(null);
-        trainedDriveTeamRadioGoup.setOnKeyListener(null);
-        observsmooth.setOnKeyListener(null);
-        observSlowedByRobot.setOnKeyListener(null);
-        observSlow.setOnKeyListener(null);
-        observPlayedDefense.setOnKeyListener(null);
-        observPenalties.setOnKeyListener(null);
-        observNotMuch.setOnKeyListener(null);
-        observJerky.setOnKeyListener(null);
-        observFellOver.setOnKeyListener(null);
-        observFellApart.setOnKeyListener(null);
-        observFast.setOnKeyListener(null);
-        observDns.setOnKeyListener(null);
-        observDiedMid.setOnKeyListener(null);
-        observDiedBack.setOnKeyListener(null);
-        observCargoPickup.setOnKeyListener(null);
-        summaryInput.setOnKeyListener(null);
-        issuesInput.setOnKeyListener(null);
+        stoneCounterInput.setOnKeyListener(null);
+        bridgeCounterInput.setOnKeyListener(null);
+        telMovedFoundationRadioGroup.setOnKeyListener(null);
+        telEndPositionRadioGroup.setOnKeyListener(null);
+        telCapstoneRadioGroup.setOnKeyListener(null);
 
     }
 
@@ -297,229 +187,43 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
         }
     }
 
+    public void decreaseStoneCounterInput(View view) {
+        if (stoneCounterValue != 0) {
+            stoneCounterValue = stoneCounterValue - 1;
+            displayStoneCounterInput(stoneCounterValue);
+        }
+    }
 
+    private void displayStoneCounterInput(int number) {
+        stoneCounterInput.setText("" + number);
+    }
 
+    public void increaseStoneCounterInput(View view) {
+        if (stoneCounterValue <= 7) {
+            stoneCounterValue = stoneCounterValue + 1;
+            displayStoneCounterInput(stoneCounterValue);
+        }
+    }
+    public void decreaseBridgeCounterInput(View view) {
+        if (bridgeCounterValue != 0) {
+            bridgeCounterValue = bridgeCounterValue - 1;
+            displayBridgeCounterInput(bridgeCounterValue);
+        }
+    }
+
+    public void increaseBridgeCounterInput(View view) {
+        if (bridgeCounterValue <= 7) {
+            bridgeCounterValue = bridgeCounterValue + 1;
+            displayBridgeCounterInput(bridgeCounterValue);
+        }
+    }
+    private void displayBridgeCounterInput(int number) {
+        bridgeCounterInput.setText("" + number);
+    }
 
     // this method sets up a string for a group of checkBoxes
 
-    public void setString(View view) {
-        Boolean checked = ((CheckBox) view).isChecked();
-        String s1;
 
-        switch (view.getId()) {
-            case R.id.observ_cargo_pickup:
-                s1 = observCargoPickup.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_died_back:
-                s1 = observDiedBack.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_died_mid:
-                s1 = observDiedMid.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_dns:
-                s1 = observDns.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_fast:
-                s1 = observFast.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_fell_apart:
-                s1 = observFellApart.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_fell_over:
-                s1 = observFellOver.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_jerky:
-                s1 = observJerky.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_not_much:
-                s1 = observNotMuch.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_penalties:
-                s1 = observPenalties.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_played_defense:
-                s1 = observPlayedDefense.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_slow:
-                s1 = observSlow.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_slowed_by_robot:
-                s1 = observSlowedByRobot.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-            case R.id.observ_smooth:
-                s1 = observsmooth.getText().toString() + " |";
-                if (checked) {
-                    if (observations.isEmpty()) {
-                        observations = s1;
-                    } else {
-                        observations = observations + s1;
-                    }
-                } else {
-                    if (observations.contains(s1)) {
-                        int start = observations.indexOf(s1);
-                        observations = observations.substring(0, start) + observations.substring(start + s1.length());
-                    }
-                }
-                break;
-
-        }
-    }
 
 
     /*This method will look at all of the text/number input fields and set error
@@ -570,11 +274,9 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
             return;
         }
 
-        final RadioButton defenseEffectivenessRadiobtn = findViewById(defenseEffectiveness.getCheckedRadioButtonId());
-        final RadioButton overallEffectivenessRadiobtn = findViewById(overallEffectivenessRadioGoup.getCheckedRadioButtonId());
-
-        final RadioButton trainedDriveTeamRadiobtn = findViewById(trainedDriveTeamRadioGoup.getCheckedRadioButtonId());
-
+        final RadioButton movedFoundationRadiobtn = findViewById(telMovedFoundationRadioGroup.getCheckedRadioButtonId());
+        final RadioButton endPositionRadiobtn = findViewById(telEndPositionRadioGroup.getCheckedRadioButtonId());
+        final RadioButton capstoneRadiobtn = findViewById(telCapstoneRadioGroup.getCheckedRadioButtonId());
 
 
         if(PermissionUtils.getPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -584,16 +286,11 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
 
                 File file = new File(dir, "Match" + Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID) + ".csv");
 
-
-                teleopDataStringList.add(defenseEffectivenessRadiobtn.getText().toString());
-                teleopDataStringList.add(endGameLocationSpinner.getSelectedItem().toString());
-                teleopDataStringList.add(cycleTimeSpinner.getSelectedItem().toString());
-                teleopDataStringList.add(overallEffectivenessRadiobtn.getText().toString());
-
-                teleopDataStringList.add(trainedDriveTeamRadiobtn.getText().toString());
-                teleopDataStringList.add(observations);
-                teleopDataStringList.add(summaryInput.getText().toString());
-                teleopDataStringList.add(issuesInput.getText().toString());
+                teleopDataStringList.add(getTextInputLayoutString(stoneCounterInputLayout));
+                teleopDataStringList.add(getTextInputLayoutString(bridgeCounterInputLayout));
+                teleopDataStringList.add(movedFoundationRadiobtn.getText().toString());
+                teleopDataStringList.add(endPositionRadiobtn.getText().toString());
+                teleopDataStringList.add(capstoneRadiobtn.getText().toString());
 
                 teleopDataStringList.add(ScouterInitialsActivity.getInitials());
 
@@ -628,31 +325,14 @@ public class TeleopActivity extends AppCompatActivity implements View.OnKeyListe
     * set radio buttons to default*/
     public void clearData(View view) {
 
-        defenseEffectiveness.clearCheck();
-        endGameLocationSpinner.setSelection(0);
-        cycleTimeSpinner.setSelection(0);
+        stoneCounterValue = 0;
+        bridgeCounterValue = 0;
 
-        overallEffectivenessRadioGoup.clearCheck();
-
-        trainedDriveTeamRadioGoup.clearCheck();
-        observsmooth.setChecked(false);
-        observSlowedByRobot.setChecked(false);
-        observSlow.setChecked(false);
-        observPlayedDefense.setChecked(false);
-        observPenalties.setChecked(false);
-        observNotMuch.setChecked(false);
-        observJerky.setChecked(false);
-
-        observFellOver.setChecked(false);
-        observFellApart.setChecked(false);
-        observFast.setChecked(false);
-        observDns.setChecked(false);
-        observDiedMid.setChecked(false);
-        observDiedBack.setChecked(false);
-        observCargoPickup.setChecked(false);
-
-        summaryInput.setText(null);
-        issuesInput.setText(null);
+        stoneCounterInput.setText("" + stoneCounterValue);
+        bridgeCounterInput.setText("" + bridgeCounterValue);
+        telMovedFoundationRadioGroup.check(R.id.tel_moved_foundation_no);
+        telEndPositionRadioGroup.check(R.id.tel_end_position_no);
+        telCapstoneRadioGroup.check(R.id.tel_capstone_no);
 
     }
 

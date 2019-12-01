@@ -84,33 +84,217 @@
                 android:entries="@array/startingLocation"
                 android:spinnerMode="dropdown" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title"
+                    android:text="@string/skystone_delivered_counter_label"
+                    android:layout_marginTop="20pt"
+                    android:layout_marginLeft="5pt"
+                    android:layout_marginRight="5pt"
+                    android:layout_marginBottom="5pt"/>
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title"
+                    android:text="@string/stone_delivered_counter_label"
+                    android:layout_marginTop="20pt"
+                    android:layout_marginLeft="5pt"
+                    android:layout_marginRight="5pt"
+                    android:layout_marginBottom="5pt"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+                <Button
+                    android:id="@+id/decrease_e"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:onClick="decreaseSkystoneCounterInput"
+                    android:text="@string/minus"/>
+                <Button
+                    android:id="@+id/increase_f"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:onClick="increaseSkystoneCounterInput"
+                    android:text="@string/plus"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/skystone_counter_input_layout"
+                    android:layout_width="200sp"
+                    android:layout_height="match_parent"
+                    android:hint="@string/skystone_counterStringhint"
+                    app:errorEnabled="true"
+                    tools:ignore="UnknownId">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/skystone_counter_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="number"
+                        android:layout_weight="1"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/regular_stone_counter_input_layout"
+                    android:layout_width="200sp"
+                    android:layout_height="match_parent"
+                    android:hint="@string/regularstoneCounterStringhint"
+                    app:errorEnabled="true"
+                    tools:ignore="UnknownId">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/regular_stone_counter_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="number"
+                        android:layout_weight="1"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <Button
+                    android:id="@+id/decrease_g"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:onClick="decreaseRegularStoneCounterInput"
+                    android:text="@string/minus"/>
+                <Button
+                    android:id="@+id/increase_h"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:onClick="increaseRegularStoneCounterInput"
+                    android:text="@string/plus"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal">
+                <TextView
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/title"
+                    android:text="@string/stones_placed_counter_label"
+                    android:layout_marginTop="20pt"
+                    android:layout_marginLeft="5pt"
+                    android:layout_marginRight="5pt"
+                    android:layout_marginBottom="5pt"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="10pt">
+                <Button
+                    android:id="@+id/decrease_i"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:onClick="decreaseStonesPlacedCounterInput"
+                    android:text="@string/minus"/>
+                <Button
+                    android:id="@+id/increase_j"
+                    android:layout_width="30pt"
+                    android:layout_height="30pt"
+                    android:onClick="increaseStonesPlacedCounterInput"
+                    android:text="@string/plus"/>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/stones_placed_counter_input_layout"
+                    android:layout_width="200sp"
+                    android:layout_height="match_parent"
+                    android:hint="@string/stones_placed_counterStringhint"
+                    app:errorEnabled="true"
+                    tools:ignore="UnknownId">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/stones_placed_counter_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:cursorVisible="false"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="number"
+                        android:layout_weight="1"/>
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="10pt"
-                android:text="@string/robotPreLoadText"/>
+                android:textSize="@dimen/title"
+                android:text="@string/game_move_foundation"/>
 
             <RadioGroup
-                android:id="@+id/game_piece_pre_loaded"
+                android:id="@+id/moved_foundation_radio_group"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:checkedButton="@id/piece_nothing">
+                android:checkedButton="@id/moved_foundation_no">
                 <RadioButton
-                    android:id="@+id/piece_hatch"
+                    android:id="@+id/moved_foundation_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pitHatch" />
+                    android:textSize="@dimen/radioButton"
+                    android:text="@string/Yes" />
                 <RadioButton
-                    android:id="@+id/piece_cargo"
+                    android:id="@+id/moved_foundation_no"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pitCargo"/>
+                    android:textSize="@dimen/radioButton"
+                    android:text="@string/No"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/title"
+                android:text="@string/game_mid_field_tape"/>
+
+            <RadioGroup
+                android:id="@+id/end_position_radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:checkedButton="@id/end_position_no"
+                android:layout_marginBottom="@dimen/margin">
                 <RadioButton
-                    android:id="@+id/piece_nothing"
+                    android:id="@+id/end_position_yes"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/pitNothing"/>
+                    android:textSize="@dimen/radioButton"
+                    android:text="@string/Yes" />
+                <RadioButton
+                    android:id="@+id/end_position_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/radioButton"
+                    android:text="@string/No"/>
+
             </RadioGroup>
 
 
@@ -124,7 +308,8 @@
                 android:layout_height="60pt"
                 android:onClick="onShowTeleop"
                 android:textSize="12pt"
-                android:text="@string/nextButton" />
+                android:text="@string/nextButton"
+                android:layout_marginTop="10pt"/>
 
     </LinearLayout>
 

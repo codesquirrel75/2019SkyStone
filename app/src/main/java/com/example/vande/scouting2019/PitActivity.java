@@ -66,22 +66,30 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
 
     @BindView(R.id.pit_team_number_spinner)
     public Spinner pitTeamNumberInputLayout;
-
+/*
     @BindView(R.id.pit_robot_weight)
     public EditText pitRobotWeight;
 
     @BindView(R.id.pit_drive_train_spinner)
     public Spinner pitDriveTrainInputLayout;
-
+*/
     @BindView(R.id.pit_programming_language_spinner)
     public Spinner pitProgrammingLanguages;
 
     @BindView(R.id.pit_other_input)
     public EditText pitOtherInputLayout;
 
+    @BindView(R.id.pit_capstone_radio_group)
+    public RadioGroup pitCapstoneRadioGroup;
 
+    @BindView(R.id.pit_foundation_radio_group)
+    public RadioGroup pitFoundationRadioGroup;
 
+    @BindView(R.id.pit_stone_delivery_radio_group)
+    public RadioGroup pitStoneDeliveryRadioGroup;
 
+    @BindView(R.id.pit_mid_field_tape_radio_group)
+    public RadioGroup pitMidFieldTapeRadioGroup;
 
 
 
@@ -124,7 +132,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
 
 
         //  --- Drive Train spinner ---
-
+/*
         Spinner drivetrainspinner = (Spinner) findViewById(R.id.pit_drive_train_spinner);
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> drivetrainadapter = ArrayAdapter.createFromResource(this,
@@ -133,7 +141,7 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         drivetrainadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 // Apply the adapter to the spinner
         drivetrainspinner.setAdapter(drivetrainadapter);
-
+*/
 
         //  --- Team Numbers spinner ---
 
@@ -189,10 +197,14 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         super.onResume();
 
         pitTeamNumberInputLayout.setOnKeyListener(this);
-        pitDriveTrainInputLayout.setOnKeyListener(this);
+//        pitDriveTrainInputLayout.setOnKeyListener(this);
         pitOtherInputLayout.setOnKeyListener(this);
-        pitRobotWeight.setOnKeyListener(this);
+//        pitRobotWeight.setOnKeyListener(this);
         pitProgrammingLanguages.setOnKeyListener(this);
+        pitCapstoneRadioGroup.setOnKeyListener(this);
+        pitFoundationRadioGroup.setOnKeyListener(this);
+        pitStoneDeliveryRadioGroup.setOnKeyListener(this);
+        pitMidFieldTapeRadioGroup.setOnKeyListener(this);
 
     }
 
@@ -202,10 +214,14 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         super.onPause();
 
         pitTeamNumberInputLayout.setOnKeyListener(null);
-        pitDriveTrainInputLayout.setOnKeyListener(null);
+//        pitDriveTrainInputLayout.setOnKeyListener(null);
         pitOtherInputLayout.setOnKeyListener(null);
-        pitRobotWeight.setOnKeyListener(null);
+//        pitRobotWeight.setOnKeyListener(null);
         pitProgrammingLanguages.setOnKeyListener(null);
+        pitCapstoneRadioGroup.setOnKeyListener(null);
+        pitFoundationRadioGroup.setOnKeyListener(null);
+        pitStoneDeliveryRadioGroup.setOnKeyListener(null);
+        pitMidFieldTapeRadioGroup.setOnKeyListener(null);
 
     }
 
@@ -229,12 +245,12 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         }else if (pitProgrammingLanguages.getSelectedItem().toString().equals("") ) {
             setSpinnerError(pitProgrammingLanguages, "Select a Programming Language.");
             ViewUtils.requestFocus(pitProgrammingLanguages, this);
-        }else if(pitDriveTrainInputLayout.getSelectedItem().toString().equals("")){
+        /*}else if(pitDriveTrainInputLayout.getSelectedItem().toString().equals("")){
             setSpinnerError(pitDriveTrainInputLayout, "Select a drive train.");
             ViewUtils.requestFocus(pitDriveTrainInputLayout, this);
         } else if (StringUtils.isEmptyOrNull(pitRobotWeight.getText().toString())) {
             pitRobotWeight.setError(getText(R.string.pitRobotWeightError));
-            ViewUtils.requestFocus(pitRobotWeight, this);
+            ViewUtils.requestFocus(pitRobotWeight, this);*/
         } else if (StringUtils.isEmptyOrNull(scouterInitialsInput.getText().toString())) {
             scouterInitialsInput.setError(getText(R.string.scouterInitialsError));
             ViewUtils.requestFocus(scouterInitialsInput, this);
@@ -246,6 +262,16 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
         }
 
 
+        final RadioButton pitCapstoneRadiobtn =
+                findViewById(pitCapstoneRadioGroup.getCheckedRadioButtonId());
+        final RadioButton pitFoundationRadiobtn =
+                findViewById(pitFoundationRadioGroup.getCheckedRadioButtonId());
+        final RadioButton pitStoneDeliveryRadiobtn =
+                findViewById(pitStoneDeliveryRadioGroup.getCheckedRadioButtonId());
+        final RadioButton pitMidFieldTapeRadiobtn =
+                findViewById(pitMidFieldTapeRadioGroup.getCheckedRadioButtonId());
+
+
 
         if(PermissionUtils.getPermissions(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
             if (Environment.MEDIA_MOUNTED.equals(state)) {
@@ -254,10 +280,13 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
                 File file = new File(dir, "Pit" + Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID) + ".csv");
 
                 pitDataStringList.add(pitTeamNumberInputLayout.getSelectedItem().toString());
-                pitDataStringList.add(pitRobotWeight.getText().toString());
-                pitDataStringList.add(pitDriveTrainInputLayout.getSelectedItem().toString());
+//                pitDataStringList.add(pitRobotWeight.getText().toString());
+//                pitDataStringList.add(pitDriveTrainInputLayout.getSelectedItem().toString());
                 pitDataStringList.add(pitProgrammingLanguages.getSelectedItem().toString());
-
+                pitDataStringList.add(pitCapstoneRadiobtn.getText().toString());
+                pitDataStringList.add(pitFoundationRadiobtn.getText().toString());
+                pitDataStringList.add(pitStoneDeliveryRadiobtn.getText().toString());
+                pitDataStringList.add(pitMidFieldTapeRadiobtn.getText().toString());
                 pitDataStringList.add(pitOtherInputLayout.getText().toString());
                 pitDataStringList.add(scouterInitialsInput.getText().toString());
 
@@ -373,9 +402,13 @@ public class PitActivity extends AppCompatActivity implements View.OnKeyListener
 
     public void clearData() {
         pitTeamNumberInputLayout.setSelection(0);
-        pitRobotWeight.setText(null);
-        pitDriveTrainInputLayout.setSelection(0);
+//        pitRobotWeight.setText(null);
+//        pitDriveTrainInputLayout.setSelection(0);
         pitProgrammingLanguages.setSelection(0);
+        pitCapstoneRadioGroup.check(R.id.pit_capstone_no);
+        pitFoundationRadioGroup.check(R.id.pit_foundation_no);
+        pitStoneDeliveryRadioGroup.check(R.id.pit_stone_delivery_no);
+        pitMidFieldTapeRadioGroup.check(R.id.pit_mid_field_tape_no);
 
         pitOtherInputLayout.setText(null);
 

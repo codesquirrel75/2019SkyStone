@@ -12,407 +12,190 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="10pt"
-            android:text="@string/defenseQuestion"/>
-
-        <RadioGroup
-            android:id="@+id/defense_effectiveness"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:checkedButton="@id/defense_na">
-
-            <RadioButton
-                android:id="@+id/defense_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_1"/>
-
-            <RadioButton
-                android:id="@+id/defense_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_2"/>
-
-            <RadioButton
-                android:id="@+id/defense_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_3"/>
-
-            <RadioButton
-                android:id="@+id/defense_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_4"/>
-
-            <RadioButton
-                android:id="@+id/defense_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_5"/>
-
-            <RadioButton
-                android:id="@+id/defense_na"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_na"/>
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/endgameHeading"
-            android:textSize="10pt"
-            android:layout_margin="10dp"/>
-
-        <Spinner
-            android:id="@+id/end_game_location_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="30dp">
-        </Spinner>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/generalInfoHeading"
-            android:textSize="10pt"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/cycle_time_heading"
-            android:textSize="10pt"
-            android:layout_margin="10dp"/>
-
-        <Spinner
-            android:id="@+id/cycle_time_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="30dp">
-
-        </Spinner>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/over_all_Effectiveness_heading"
-            android:textSize="10pt"
-            android:layout_margin="10dp"/>
-
-        <RadioGroup
-            android:id="@+id/overall_effectiveness_radio_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:checkedButton="@id/overall_na">
-
-            <RadioButton
-                android:id="@+id/overall_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_1"/>
-
-            <RadioButton
-                android:id="@+id/overall_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_2"/>
-
-            <RadioButton
-                android:id="@+id/overall_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_3"/>
-
-            <RadioButton
-                android:id="@+id/overall_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_4"/>
-
-            <RadioButton
-                android:id="@+id/overall_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_5"/>
-
-            <RadioButton
-                android:id="@+id/overall_na"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_na"/>
-
-        </RadioGroup>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/trained_drive_team_heading"
-            android:textSize="10pt"
-            android:layout_margin="10dp"/>
-
-        <RadioGroup
-            android:id="@+id/trained_drive_team_radio_group"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:checkedButton="@id/drive_team_placement_na">
-
-            <RadioButton
-                android:id="@+id/drive_team_placement_1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_1"/>
-
-            <RadioButton
-                android:id="@+id/drive_team_placement_2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_2"/>
-
-            <RadioButton
-                android:id="@+id/drive_team_placement_3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_3"/>
-
-            <RadioButton
-                android:id="@+id/drive_team_placement_4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_4"/>
-
-            <RadioButton
-                android:id="@+id/drive_team_placement_5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_5"/>
-
-            <RadioButton
-                android:id="@+id/drive_team_placement_na"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/rating_na"/>
-
-        </RadioGroup>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/robotObservations"
-            android:textSize="10pt"
-            android:layout_margin="10dp"/>
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/observ_fast"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_fast"/>
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title"
+            android:text="@string/stone_counter_label"
+            android:layout_marginTop="20pt"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:layout_marginBottom="5pt"/>
+            <TextView
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/title"
+            android:text="@string/bridge_counter_label"
+            android:layout_marginTop="20pt"
+            android:layout_marginLeft="5pt"
+            android:layout_marginRight="5pt"
+            android:layout_marginBottom="5pt"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal">
+            <Button
+                android:id="@+id/decrease_a"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:onClick="decreaseStoneCounterInput"
+                android:text="@string/minus"/>
+            <Button
+                android:id="@+id/increase_b"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:onClick="increaseStoneCounterInput"
+                android:text="@string/plus"/>
 
-                <CheckBox
-                    android:id="@+id/observ_played_defense"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/stone_counter_input_layout"
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:hint="@string/stone_counterStringhint"
+                app:errorEnabled="true"
+                tools:ignore="UnknownId">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/stone_counter_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_played_defense"/>
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:enabled="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="number"
+                    android:layout_weight="1"/>
+            </android.support.design.widget.TextInputLayout>
 
-                <CheckBox
-                    android:id="@+id/observ_died_mid"
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/bridge_counter_input_layout"
+                android:layout_width="200sp"
+                android:layout_height="match_parent"
+                android:hint="@string/stackCounterStringhint"
+                app:errorEnabled="true"
+                tools:ignore="UnknownId">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/bridge_counter_input"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_died_mid"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/observ_slow"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_slow"/>
+                    android:clickable="false"
+                    android:cursorVisible="false"
+                    android:enabled="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:inputType="number"
+                    android:layout_weight="1"/>
+            </android.support.design.widget.TextInputLayout>
 
-                <CheckBox
-                    android:id="@+id/option"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="option"/>
-
-                <CheckBox
-                    android:id="@+id/observ_died_back"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_died_back"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/observ_jerky"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_jerky"/>
-
-                <CheckBox
-                    android:id="@+id/observ_cargo_pickup"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_cargo_pickup"/>
-
-                <CheckBox
-                    android:id="@+id/observ_fell_apart"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_fell_apart"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/observ_smooth"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_smooth"/>
-
-                <CheckBox
-                    android:id="@+id/observ_slowed_by_robot"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_slowed_by_robot"/>
-
-                <CheckBox
-                    android:id="@+id/observ_not_much"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_not_much"/>
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <CheckBox
-                    android:id="@+id/observ_fell_over"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_fell_over"/>
-
-                <CheckBox
-                    android:id="@+id/observ_penalties"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_penalties"/>
-
-                <CheckBox
-                    android:id="@+id/observ_dns"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:onClick="setString"
-                    android:text="@string/observ_dns"/>
-            </LinearLayout>
-
-
-
+            <Button
+                android:id="@+id/decrease_c"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:onClick="decreaseBridgeCounterInput"
+                android:text="@string/minus"/>
+            <Button
+                android:id="@+id/increase_d"
+                android:layout_width="30pt"
+                android:layout_height="30pt"
+                android:onClick="increaseBridgeCounterInput"
+                android:text="@string/plus"/>
 
         </LinearLayout>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textSize="10pt"
-            android:text="@string/summaryHeading"/>
+            android:textSize="@dimen/title"
+            android:text="@string/tel_capstone"/>
+
+        <RadioGroup
+            android:id="@+id/tel_capstone_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:checkedButton="@id/tel_capstone_no"
+            android:layout_marginBottom="@dimen/margin">
+            <RadioButton
+                android:id="@+id/tel_capstone_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/radioButton"
+                android:text="@string/Yes" />
+            <RadioButton
+                android:id="@+id/tel_capstone_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/radioButton"
+                android:text="@string/No"/>
+
+        </RadioGroup>
 
 
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/summary_input"
-            android:hint="@string/summary"
+    <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="16sp" />
+            android:textSize="@dimen/title"
+            android:text="@string/tel_move_foundation"/>
+
+        <RadioGroup
+            android:id="@+id/tel_moved_foundation_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:checkedButton="@id/tel_moved_foundation_no"
+            android:layout_marginBottom="@dimen/margin">
+            <RadioButton
+                android:id="@+id/tel_moved_foundation_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/radioButton"
+                android:text="@string/Yes" />
+            <RadioButton
+                android:id="@+id/tel_moved_foundation_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/radioButton"
+                android:text="@string/No"/>
+
+        </RadioGroup>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textSize="10pt"
-            android:text="@string/issuesHeading"/>
+            android:textSize="@dimen/title"
+            android:text="@string/tel_end_position"/>
 
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/issues_input"
-            android:hint="@string/issues"
-            android:layout_width="match_parent"
+        <RadioGroup
+            android:id="@+id/tel_end_position_radio_group"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textSize="16sp" />
+            android:orientation="horizontal"
+            android:checkedButton="@id/tel_end_position_no"
+            android:layout_marginBottom="@dimen/margin">
+            <RadioButton
+                android:id="@+id/tel_end_position_yes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/radioButton"
+                android:text="@string/Yes" />
+            <RadioButton
+                android:id="@+id/tel_end_position_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/radioButton"
+                android:text="@string/No"/>
 
-
+        </RadioGroup>
 
         <Button
             android:id="@+id/save_btn"
@@ -424,6 +207,8 @@
             android:layout_margin="60dp"/>
 
     </LinearLayout>
+s
+
 
 
 
